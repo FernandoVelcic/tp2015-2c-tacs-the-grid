@@ -76,6 +76,13 @@
             <version>${appengine.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Custom dependencies -->
+        <dependency>
+            <groupId>com.googlecode.objectify</groupId>
+            <artifactId>objectify</artifactId>
+            <version>5.1.6</version>
+        </dependency>
     </dependencies>
 
     <build>

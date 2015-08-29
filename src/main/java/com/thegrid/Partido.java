@@ -1,5 +1,7 @@
 package com.thegrid;
 
+//Esta se va a borrar despues, era de ejemplo
+
 public class Partido {
 
   public String message;
