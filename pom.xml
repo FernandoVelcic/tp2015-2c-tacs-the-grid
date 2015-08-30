@@ -77,12 +77,19 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Custom dependencies -->
+        <!-- For GAE datastore -->
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
             <version>5.1.6</version>
         </dependency>
+        <!-- For getters and setters -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
