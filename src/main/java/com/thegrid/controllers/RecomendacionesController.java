@@ -3,6 +3,7 @@ package com.thegrid.controllers;
 import com.google.api.server.spi.config.Api;
 import com.googlecode.objectify.ObjectifyService;
 import com.thegrid.Constants;
+import com.thegrid.models.Inscripto;
 import com.thegrid.models.Recomendacion;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class RecomendacionesController {
     public static ArrayList<Recomendacion> recomendaciones = new ArrayList<Recomendacion>();
 
     static {
-        //ObjectifyService.register(Recomendacion.class);
+        ObjectifyService.register(Recomendacion.class);
     }
 
     public ArrayList<Recomendacion> listRecomendacion() {
