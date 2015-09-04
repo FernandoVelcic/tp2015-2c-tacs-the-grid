@@ -12,14 +12,18 @@ public class Inscripto {
     @Getter
     private Long id;
 
- /*   @Load
-    private Ref<Usuario> usuario;
-    @Load
-    private Ref<Partido> partido;*/
     @Getter
     private String puesto;
 
-    public Inscripto() {
-        puesto = "ASD";
+    private Ref<Usuario> usuario;
+    public Usuario getUsuario() { return usuario.get(); }
+
+    private Ref<Partido> partido;
+    public Partido getPartido() { return partido.get(); }
+
+    public Inscripto(Ref<Partido> partido) {
+        //mock
+        puesto = "Titular";
+        this.partido = partido;
     }
 }

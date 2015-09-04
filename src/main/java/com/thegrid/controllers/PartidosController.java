@@ -24,7 +24,6 @@ public class PartidosController {
     public List<Partido> listPartidos() {
         //partidos.add(new Partido());
         //return partidos;
-        DatastoreService.getOfy().save().entity(new Partido()).now();
         return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 
