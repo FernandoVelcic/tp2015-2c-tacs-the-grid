@@ -1,8 +1,18 @@
-.body{
-    min-height: 2000px;
+body{
     padding-top: 70px;
 }
 
-.navbar{
+
+.partidoDiv{
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #2aabd2;
+    padding: 15px 15px 15px 15px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.gridRow{
     margin-bottom: 20px;
 }

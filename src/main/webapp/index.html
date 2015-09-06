@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <meta charset="UTF-8">
+    <base href="/">
     <title>Partidos Manager</title>
 
     <!--Stylesheets-->
-    <link type="text/css" rel="stylesheet" href="/assets/css/main.css"/>
     <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap/bootstrap-theme.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/main.css"/>
 </head>
-<body>
+<body ng-controller="mainController">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,29 +24,32 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/recomendaciones">Recomendaciones</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="/user">Tus partidos</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Partidos Manager</h1>
-            <p>Esto es un ejemplo de la página de Bootstrap</p>
-            <p>
-                <a class="btn btn-lg btn-primary" href="http://getbootstrap.com/getting-started/#download" role="button">Bootstrap Docs</a>
-            </p>
+    <div class="container" id="main">
+        <div ng-view>
         </div>
     </div>
 
+
     <!--Libs-->
-    <script src="/assets/libs/jquery-1.11.3.min.js"></script>
-    <script src="/assets/libs/bootstrap.min.js"></script>
-    <script src="/assets/libs/angular.js"></script>
+    <script src="assets/libs/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/libs/angular.js"></script>
+    <script src="assets/libs/angular-route.js"></script>
+    <script src="assets/libs/angular-resource.js"></script>
     <!--Scripts-->
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/controllers/recomendacionesController.js"></script>
+    <script src="app/controllers/userController.js"></script>
+    <script src="app/app.js"></script>
 </body>
 </html>

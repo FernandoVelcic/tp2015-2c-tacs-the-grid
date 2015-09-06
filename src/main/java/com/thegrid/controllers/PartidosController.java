@@ -42,8 +42,4 @@ public class PartidosController {
         DatastoreService.getOfy().save().entity(partido).now();
         return partido;
     }
-
-
-
-
 }
