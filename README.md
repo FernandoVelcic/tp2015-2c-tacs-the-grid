@@ -4,6 +4,9 @@ Partidos Manager
 ## Integrantes
 - Fernando Velcic
 - Gaston Mazzeo
+- Bruno Leonardo Mendez
+- Cristian Eric Ames Masek
+- Ezequiel Ayzenberg
 
 ## Requerimientos
 - JDK 1.7
