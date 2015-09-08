@@ -12,7 +12,7 @@
         <label for="lugar">Lugar:</label>
         <input type="text" class="form-control" id="lugar" ng-model="lugar">
     </div>
-    <button type="submit" class="btn btn-default" ng-click="add()">Agregar</button>
+    <button type="submit" class="btn btn-primary" ng-click="add()">Agregar</button>
 </form>
 
 <table class="table table-striped" class="genericTable">
@@ -29,7 +29,7 @@
         <td>{{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
         <td>
-            <button class="btn genericBtn" ng-click="delete($index)">
+            <button class="btn btn-danger" ng-click="delete($index)">
                 <span class="glyphicons"></span>Eliminar
             </button>
         </td>
