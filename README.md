@@ -18,7 +18,7 @@ Partidos Manager
 - Deploy: mvn appengine:update
 
 ## URLs útiles
-- Production server: http://partidosmanager.appspot.com
+- Production server: https://partidosmanager.appspot.com
 - Dev Server: http://localhost:8080
 - API Explorer: http://localhost:8080/_ah/api/explorer
 - Google Datastore Management: http://localhost:8080/_ah/admin
