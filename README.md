@@ -9,10 +9,16 @@ Partidos Manager
 - Ezequiel Ayzenberg
 
 ## Requerimientos
-- JDK 1.7
+- JDK 1.8
 - Maven >= 3.2.1
 
 ## Comandos
 - Compile: mvn clean install
-- Start local server: mvn appengine:devserver
+- Start dev server: mvn appengine:devserver
 - Deploy: mvn appengine:update
+
+## URLs útiles
+- Production server: http://partidosmanager.appspot.com
+- Dev Server: http://localhost:8080
+- API Explorer: http://localhost:8080/_ah/api/explorer
+- Google Datastore Management: http://localhost:8080/_ah/admin
