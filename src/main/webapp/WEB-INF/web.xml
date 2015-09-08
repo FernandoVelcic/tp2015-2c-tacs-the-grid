@@ -15,15 +15,6 @@
 		<servlet-name>SystemServiceServlet</servlet-name>
 		<url-pattern>/_ah/spi/*</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<servlet-name>primerGet</servlet-name>
-		<servlet-class>com.thegrid.controllers.PrimerGet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>primerGet</servlet-name>
-		<url-pattern>/primerGet</url-pattern>
-
-	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>

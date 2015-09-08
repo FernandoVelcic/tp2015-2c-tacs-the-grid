@@ -4,8 +4,7 @@ var userController = function($scope, $http) {
 
     $scope.delete = function(index){
         var partido = $scope.partidos[index];
-        console.log(partido);
-        $http.delete("/_ah/api/partidosmanager/v1/partido/", {'id': partido.id})
+        $http.delete("/_ah/api/partidosmanager/v1/partido/" + partido.id)
             .success(function (response) {$scope.partidos.splice(index, 1);});
     }
 
