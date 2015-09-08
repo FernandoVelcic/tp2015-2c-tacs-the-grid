@@ -1,4 +1,38 @@
-<div>
-    <p>User</p>
-    {{message}}
-</div>
+<h4>Agregar partido</h4>
+<form role="form" style="width: 30%; margin-bottom: 50px;">
+    <div class="form-group">
+        <label for="deporte">Deporte</label>
+        <input type="text" class="form-control" id="deporte" ng-model="deporte">
+    </div>
+    <div class="form-group">
+        <label for="cantPersonas">Cantidad de Personas:</label>
+        <input type="text" class="form-control" id="cantPersonas" ng-model="cantPersonas">
+    </div>
+    <div class="form-group">
+        <label for="lugar">Lugar:</label>
+        <input type="text" class="form-control" id="lugar" ng-model="lugar">
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="add()">Agregar</button>
+</form>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="partido in partidos">
+        <td>{{ partido.deporte }}</td>
+        <td>{{ partido.cant_personas }}</td>
+        <td>{{ partido.lugar}}</td>
+        <td>
+            <button class="btn genericBtn" ng-click="delete($index)">
+                <span class="glyphicons"></span>Eliminar
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

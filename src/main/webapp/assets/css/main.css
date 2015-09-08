@@ -1,18 +1,23 @@
 body{
     padding-top: 70px;
+    background-color: whitesmoke;
 }
-
-
 .partidoDiv{
     width: 60%;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #2aabd2;
+    background-color: #C8E6C9;
     padding: 15px 15px 15px 15px;
     text-align: left;
     border-radius: 5px;
 }
-
 .gridRow{
     margin-bottom: 20px;
+}
+.genericBtn{
+    background-color: #C8E6C9;
+}
+.genericTable{
+    border-radius:5px;
+    border-color: #8c8c8c;
 }
