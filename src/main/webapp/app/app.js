@@ -12,15 +12,15 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/recomendaciones.html',
             controller: 'recomendacionesController'
         })
-        .when('/user', {
-            templateUrl: 'views/user.html',
-            controller: 'userController'
+        .when('/partidos', {
+            templateUrl: 'views/partidos.html',
+            controller: 'partidosController'
         });
 
     $locationProvider.html5Mode(true);
 });
 
-app.controller('userController', userController);
+app.controller('partidosController', partidosController);
 
 app.controller('mainController', mainController);
 app.controller('recomendacionesController', recomendacionesController);

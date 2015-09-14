@@ -1,4 +1,4 @@
-var userController = function($scope, $http) {
+var partidosController = function($scope, $http) {
     $http.get("/_ah/api/partidosmanager/v1/partido/")
         .success(function (response) {$scope.partidos = response.items;});
 
@@ -17,6 +17,6 @@ var userController = function($scope, $http) {
             }).success(function(response){
                     $scope.partidos.push(response);
                 });
-    }
+    };
 }
 
