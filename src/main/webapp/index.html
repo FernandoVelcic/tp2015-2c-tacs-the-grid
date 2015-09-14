@@ -20,31 +20,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Partidos Manager</a>
+                <a class="navbar-brand" href="/">Partidos Manager</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/recomendaciones">Recomendaciones</a></li>
                     <li class="dropdown">
 					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Partidos<b class="caret"></b></a>
 					    <ul class="dropdown-menu">
-                    		<li><a href="#">Nuevo Partido!</a></li>
-                    		<li><a href="#">Ver partidos recomendados por tus amigos</a></li>
-					       	<li><a href="/partidos">Ver todos los partidos disponibles</a></li>
+                    		<li><a href="#">Ver partidos de tus amigos</a></li>
+					       	<li><a href="/partidos">Ver partidos a los que me anote</a></li>
 					    </ul>
 					</li>
+                    <li><a href="/recomendaciones">Recomendaciones</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-<!--                     <li><a href="/user">Tus partidos</a></li> -->
+
                     <li class="dropdown">
-					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tus partidos<b class="caret"></b></a>
-					    <ul class="dropdown-menu">
-                    		<li><a href="#">Partidos creados por vos</a></li>
-					       	<li><a href="#">Partidos en los que te anotaste</a></li>
-					    </ul>
-					</li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+                                <img class="logo-user img-rounded"  src="https://lh4.ggpht.com/nec5xcJE97Fs1FiwhWF2K7089elbt5rq30L8Lzhg-sgy1RsFV0fPRoaXV5JUnfGbE8Wx=w32">
+                                Pepe<b class="caret"></b>
+
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/partidos">Mis partidos</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -61,10 +68,9 @@
     <script src="assets/libs/angular-route.js"></script>
     <script src="assets/libs/angular-resource.js"></script>
     <!--Scripts-->
-    <script src="assets/js/main.js"></script>
+    <script src="app/app.js"></script>
     <script src="app/controllers/mainController.js"></script>
     <script src="app/controllers/recomendacionesController.js"></script>
     <script src="app/controllers/partidosController.js"></script>
-    <script src="app/app.js"></script>
 </body>
 </html>

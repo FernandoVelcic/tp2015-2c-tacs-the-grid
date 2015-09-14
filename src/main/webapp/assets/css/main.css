@@ -18,3 +18,7 @@ body{
     border-radius:5px;
     border-color: #8c8c8c;
 }
+.logo-user{
+    margin-top: -12px;
+    margin-bottom:-10px;
+}

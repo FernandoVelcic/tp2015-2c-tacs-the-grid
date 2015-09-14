@@ -1,4 +1,4 @@
-var partidosController = function($scope, $http) {
+app.controller('partidosController', function($scope, $http) {
     $http.get("/_ah/api/partidosmanager/v1/partido/")
         .success(function (response) {$scope.partidos = response.items;});
 
@@ -6,7 +6,7 @@ var partidosController = function($scope, $http) {
         var partido = $scope.partidos[index];
         $http.delete("/_ah/api/partidosmanager/v1/partido/" + partido.id)
             .success(function (response) {$scope.partidos.splice(index, 1);});
-    }
+    };
 
     $scope.add = function(){
         $http.post("/_ah/api/partidosmanager/v1/partido/",
@@ -18,5 +18,4 @@ var partidosController = function($scope, $http) {
                     $scope.partidos.push(response);
                 });
     };
-}
-
+});

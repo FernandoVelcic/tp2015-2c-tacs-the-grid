@@ -1,6 +1,26 @@
-<div>
-    <div>
-        <p>Recomendaciones</p>
-        {{message}}
-    </div>
-</div>
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;">De</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="recomendacion in recomendaciones">
+        <td>{{ recomendacion.partido.deporte }}</td>
+        <td>{{ recomendacion.partido.cant_personas }}</td>
+        <td>{{ recomendacion.partido.lugar}}</td>
+        <td>{{ recomendacion.usuario.facebook_id }}</td>
+        <td>
+            <button class="btn btn-success" ng-click="aceptar(recomendacion)">
+                <span class="glyphicons"></span>¡Quiero participar!
+            </button>
+            <button class="btn btn-danger" ng-click="rechazar(recomendacion)">
+                <span class="glyphicons"></span>Rechazar
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
