@@ -8,13 +8,24 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/home.html',
             controller: 'mainController'
         })
-        .when('/recomendaciones', {
+        .when('/app', {
+            templateUrl: 'views/home.html',
+            controller: 'mainController'
+        })
+        .when('/app/recomendaciones', {
             templateUrl: 'views/recomendaciones.html',
             controller: 'recomendacionesController'
         })
-        .when('/partidos', {
+        .when('/app/partidos', {
             templateUrl: 'views/partidos.html',
             controller: 'partidosController'
+        })
+        .when('/error', {
+            templateUrl: 'views/error.html',
+            controller: 'emptyController'
+        })
+        .otherwise({
+            redirectTo: '/error'
         });
 
     $locationProvider.html5Mode(true);
