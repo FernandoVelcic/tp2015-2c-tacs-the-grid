@@ -16,6 +16,7 @@ app.controller('partidosController', function($scope, $http) {
                 'lugar': $scope.lugar
             }).success(function(response){
                     $scope.partidos.push(response);
+                    $scope.getLocation().path("/");
                 });
     };
 });

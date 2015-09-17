@@ -20,6 +20,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/partidos.html',
             controller: 'partidosController'
         })
+        .when('/app/partidos/nuevo', {
+            templateUrl: 'views/nuevoPartido.html',
+            controller: 'partidosController'
+        })
         .when('/error', {
             templateUrl: 'views/error.html',
             controller: 'emptyController'
