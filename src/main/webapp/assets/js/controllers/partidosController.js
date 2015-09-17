@@ -1,4 +1,4 @@
-app.controller('partidosController', function($scope, $http) {
+app.controller('partidosController', function($scope, $http, $location) {
     $http.get("/_ah/api/partidosmanager/v1/partido/")
         .success(function (response) {$scope.partidos = response.items;});
 
@@ -16,7 +16,7 @@ app.controller('partidosController', function($scope, $http) {
                 'lugar': $scope.lugar
             }).success(function(response){
                     $scope.partidos.push(response);
-                    $scope.getLocation().path("/");
-                });
+                    $location.path("/");
+            });
     };
 });
