@@ -34,3 +34,17 @@ app.config(function($routeProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
 });
+
+app.factory("Partido", function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/partido/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+});
+
+app.factory("Recomendacion", function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/recomendacion/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+});
