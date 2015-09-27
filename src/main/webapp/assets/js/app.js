@@ -46,6 +46,13 @@ app.factory("Partido", function($resource) {
         });
 });
 
+app.factory("Inscripto", function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/inscripto/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+});
+
 app.factory("FriendPartido", function($resource) {
     return $resource("/_ah/api/partidosmanager/v1/friends/partidos/:id", null,
         {
