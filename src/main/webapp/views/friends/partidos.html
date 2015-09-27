@@ -1,0 +1,23 @@
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;">De</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="partido in partidos">
+        <td>{{ partido.deporte }}</td>
+        <td>{{ partido.cant_personas }}</td>
+        <td>{{ partido.lugar}}</td>
+        <td>{{ partido.usuario.facebook_id }}</td>
+        <td>
+            <button class="btn btn-success" ng-click="anotarme(partido)">
+                <span class="glyphicons"></span>¡Quiero participar!
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

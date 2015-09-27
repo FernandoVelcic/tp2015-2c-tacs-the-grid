@@ -19,11 +19,7 @@ import java.util.List;
 )
 public class PartidosController {
 
-    public static ArrayList<Partido> partidos = new ArrayList<Partido>();
-
     public List<Partido> listPartidos() {
-        //partidos.add(new Partido());
-        //return partidos;
         return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 
@@ -38,8 +34,12 @@ public class PartidosController {
 
     @ApiMethod(httpMethod = "post")
     public Partido insertPartido(Partido partido) {
-        //Partido partido_new = new Partido();
         DatastoreService.getOfy().save().entity(partido).now();
         return partido;
+    }
+
+    @ApiMethod(path="friends/partidos")
+    public List<Partido> listFriendsPartidos() {
+        return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 }

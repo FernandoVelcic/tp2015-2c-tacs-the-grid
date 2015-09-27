@@ -24,6 +24,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/nuevoPartido.html',
             controller: 'partidosController'
         })
+        .when('/app/friends/partidos', {
+            templateUrl: 'views/friends/partidos.html',
+            controller: 'friendsPartidosController'
+        })
         .when('/error', {
             templateUrl: 'views/error.html',
             controller: 'emptyController'
@@ -37,6 +41,13 @@ app.config(function($routeProvider, $locationProvider) {
 
 app.factory("Partido", function($resource) {
     return $resource("/_ah/api/partidosmanager/v1/partido/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+});
+
+app.factory("FriendPartido", function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/friends/partidos/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
