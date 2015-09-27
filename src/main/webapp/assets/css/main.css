@@ -22,3 +22,8 @@ body{
     margin-top: -12px;
     margin-bottom:-10px;
 }
+.mapa{
+    background-color: #C8E6C9;
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+}

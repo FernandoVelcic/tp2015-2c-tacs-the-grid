@@ -12,11 +12,17 @@ app.controller('partidosController', function($scope, $http, $location, Partido)
         Partido.save({
                         'deporte': $scope.deporte,
                         'cant_personas': $scope.cantPersonas,
-                        'lugar': $scope.lugar
+                        'lugar': $scope.address
                     },
                     function(response){
                         $scope.partidos.push(response);
                         $location.path("/");
                 });
     };
+
+    $scope.placeChanged = function(place) {
+        $scope.types = "['address']";
+        $scope.place = this.getPlace();
+        $scope.map.setCenter($scope.place.geometry.location);
+    }
 });
