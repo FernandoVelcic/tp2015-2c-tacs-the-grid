@@ -1,4 +1,4 @@
-app.controller('partidosController', function($scope, $http, $location, Partido) {
+app.controller('partidosController', function($scope, $http, $location, Partido, Recomendacion) {
     Partido.query(function(data) {
         $scope.partidos = data.items;
     });
@@ -6,6 +6,15 @@ app.controller('partidosController', function($scope, $http, $location, Partido)
     $scope.deletePartido = function(partido){
         Partido.delete({ id: partido.id},
                     function () {$scope.partidos.splice($scope.partidos.indexOf(partido), 1);});
+    };
+
+    $scope.recomendar = function(partido){
+        var recomendacion = {
+            'partido': {
+                'id': partido.id
+            }
+        };
+        Recomendacion.save(recomendacion, function() {})
     };
 
     $scope.add = function(){

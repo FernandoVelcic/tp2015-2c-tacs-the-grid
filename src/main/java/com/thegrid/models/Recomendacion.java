@@ -21,6 +21,7 @@ public class Recomendacion {
 
     private Ref<Partido> partido;
     public Partido getPartido() { return partido.get(); }
+    public void setPartido(Partido partido) { this.partido = Ref.create(partido); }
 
     public Recomendacion() {
         //mock

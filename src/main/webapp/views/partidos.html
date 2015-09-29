@@ -12,6 +12,9 @@
         <td>{{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
         <td>
+            <button class="btn btn-success" ng-click="recomendar(partido)">
+                <span class="glyphicons"></span>Recomendar
+            </button>
             <button class="btn btn-danger" ng-click="deletePartido(partido)">
                 <span class="glyphicons"></span>Eliminar
             </button>
