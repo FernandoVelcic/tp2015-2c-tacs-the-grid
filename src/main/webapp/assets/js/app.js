@@ -16,6 +16,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/recomendaciones.html',
             controller: 'recomendacionesController'
         })
+        .when('/app/inscripciones', {
+            templateUrl: 'views/inscripciones.html',
+            controller: 'inscripcionesController'
+        })
         .when('/app/partidos', {
             templateUrl: 'views/partidos.html',
             controller: 'partidosController'

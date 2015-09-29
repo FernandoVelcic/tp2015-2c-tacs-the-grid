@@ -1,0 +1,21 @@
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
+        <td>{{ inscripto.partido.deporte }}</td>
+        <td>{{ inscripto.partido.cant_personas }}</td>
+        <td>{{ inscripto.partido.lugar}}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="desanotarme(inscripto)">
+                <span class="glyphicons"></span>Desanotarme
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
