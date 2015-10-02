@@ -29,8 +29,6 @@ public class Partido {
         return usuario.get();
     }
 
-    //private List<Ref<Inscripto>> inscriptos = new ArrayList<Ref<Inscripto>>();
-
     public Partido() {
         //mock
         this.deporte = "Futbol";
@@ -40,8 +38,6 @@ public class Partido {
         Usuario usertest = new Usuario();
         DatastoreService.getOfy().save().entity(usertest).now();
         usuario = Ref.create(usertest);
-
-        //this.inscriptos.add(Ref.create(insctest));
     }
 
 }

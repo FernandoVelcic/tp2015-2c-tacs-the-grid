@@ -32,9 +32,5 @@ public class Recomendacion {
         Usuario usertest2 = new Usuario();
         DatastoreService.getOfy().save().entity(usertest2).now();
         from_usuario = Ref.create(usertest2);
-
-        Partido partidotest = new Partido();
-        DatastoreService.getOfy().save().entity(partidotest).now();
-        partido = Ref.create(partidotest);
     }
 }

@@ -23,12 +23,6 @@ public class Inscripto {
     public Partido getPartido() { return partido.get(); }
     public void setPartido(Partido partido) { this.partido = Ref.create(partido); }
 
-    public Inscripto(Ref<Partido> partido) {
-        //mock
-        puesto = "Titular";
-        this.partido = partido;
-    }
-
     public Inscripto() {
         //mock
         puesto = "Titular";
@@ -36,9 +30,5 @@ public class Inscripto {
         Usuario usertest = new Usuario();
         DatastoreService.getOfy().save().entity(usertest).now();
         usuario = Ref.create(usertest);
-
-        Partido partidotest = new Partido();
-        DatastoreService.getOfy().save().entity(partidotest).now();
-        partido = Ref.create(partidotest);
     }
 }
