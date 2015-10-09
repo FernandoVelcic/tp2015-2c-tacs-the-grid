@@ -1,5 +1,6 @@
 package com.thegrid.models;
 
+import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Partido {
+public class Partido implements IModel {
 
     @Getter
     @Id
@@ -40,4 +41,10 @@ public class Partido {
         usuario = Ref.create(usertest);
     }
 
+    @Override
+    public void delete() {
+        DatastoreService.getOfy().delete().keys(DatastoreService.getOfy().load().type(Inscripto.class).filter("partido", this).keys());
+        DatastoreService.getOfy().delete().keys(DatastoreService.getOfy().load().type(Recomendacion.class).filter("partido", this).keys());
+        DatastoreService.getOfy().delete().entity(this);
+    }
 }

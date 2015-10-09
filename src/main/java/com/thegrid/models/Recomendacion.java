@@ -3,12 +3,13 @@ package com.thegrid.models;
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Load;
 import com.thegrid.services.DatastoreService;
 import lombok.Getter;
 
 @Entity
-public class Recomendacion {
+public class Recomendacion implements IModel {
     @Getter
     @Id
     private Long id;
@@ -19,6 +20,7 @@ public class Recomendacion {
     private Ref<Usuario> from_usuario;
     public Usuario getFrom_usuario() { return from_usuario.get(); }
 
+    @Index
     private Ref<Partido> partido;
     public Partido getPartido() { return partido.get(); }
     public void setPartido(Partido partido) { this.partido = Ref.create(partido); }
@@ -32,5 +34,10 @@ public class Recomendacion {
         Usuario usertest2 = new Usuario();
         DatastoreService.getOfy().save().entity(usertest2).now();
         from_usuario = Ref.create(usertest2);
+    }
+
+    @Override
+    public void delete() {
+
     }
 }
