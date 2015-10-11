@@ -8,13 +8,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr style="text-align: center;" ng-repeat="partido in partidos">
-        <td>{{ partido.deporte }}</td>
-        <td>{{ partido.cant_personas }}</td>
-        <td>{{ partido.lugar}}</td>
-        <td>{{ partido.usuario.facebook_id }}</td>
+    <tr style="text-align: center;" ng-repeat="partidoConBool in partidosConBool">
+        <td>{{ partidoConBool.partido.deporte }}</td>
+        <td>{{ partidoConBool.partido.cant_personas }}</td>
+        <td>{{ partidoConBool.partido.lugar}}</td>
+        <td>{{ partidoConBool.partido.usuario.facebook_id }}</td>
         <td>
-            <button class="btn btn-success" ng-click="anotarme(partido)">
+            <button ng-if="partidoConBool.estoyInscripto == true" class="btn btn-danger" ng-click="desanotarme(partidoConBool)">
+                <span class="glyphicons"></span>Desanotarme
+            </button>
+            <button ng-if="partidoConBool.estoyInscripto == false" class="btn btn-success" ng-click="anotarme(partidoConBool)">
                 <span class="glyphicons"></span>¡Quiero participar!
             </button>
         </td>

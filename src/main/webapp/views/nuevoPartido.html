@@ -21,7 +21,8 @@
             <label for="yoParticipo" style="text-align: center">¿Voy a participar?:</label>
                 </td></tr>
                 <tr><td style="padding-left: 15px">
-            <input type="checkbox" name="switchcheckbox" id="yoParticipo" ng-model="checkParticipation" data-off-text="NO" data-on-text="SI">
+            <input type="checkbox" name="switchcheckbox" id="yoParticipo" ng-model="checkParticipation"
+                   data-off-text="NO" data-on-text="SI" onchange="switchChanged()" checked>
                 </td></tr>
             </table>
         </li>

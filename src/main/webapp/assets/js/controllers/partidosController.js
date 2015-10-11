@@ -5,6 +5,11 @@ app.controller('partidosController', function($scope, $http, $location, Partido,
 
 
     $("[name='switchcheckbox']").bootstrapSwitch();
+    $('input[name="switchcheckbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+        switchState = !switchState;
+    });
+
+    var switchState = true;
 
     $scope.deletePartido = function(partido){
         Partido.delete({ id: partido.id},
@@ -28,7 +33,17 @@ app.controller('partidosController', function($scope, $http, $location, Partido,
                     },
                     function(response){
                         $scope.partidos.push(response);
+                        if(switchState){
                             $location.path("/")
+                            var inscripto = {
+                                'partido': {
+                                    'id': response.id
+                                },
+                            };
+                            Inscripto.save(inscripto, function(response){
+                                $location.path("/");
+                            });
+                        }else $location.path("/");
                     });
     };
 
