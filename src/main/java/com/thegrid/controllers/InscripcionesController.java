@@ -29,7 +29,7 @@ public class InscripcionesController {
 
     @ApiMethod(httpMethod = "delete")
     public void deleteInscripto(@Named("id") Long id) {
-        DatastoreService.getOfy().delete().type(Inscripto.class).id(id);
+        getInscripto(id).delete();
     }
 
     @ApiMethod(httpMethod = "post")

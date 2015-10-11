@@ -34,7 +34,7 @@ public class UsuariosController {
 
     @ApiMethod(httpMethod = "delete")
     public void deleteUsuario(@Named("id") Long id) {
-        DatastoreService.getOfy().delete().type(Usuario.class).id(id);
+        getUsuario(id).delete();
     }
 
     @ApiMethod(httpMethod = "post")

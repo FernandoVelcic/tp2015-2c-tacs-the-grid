@@ -2,6 +2,7 @@ package com.thegrid.models;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.thegrid.services.DatastoreService;
 import lombok.Getter;
 
 @Entity
@@ -20,6 +21,6 @@ public class Usuario implements IModel {
 
     @Override
     public void delete() {
-
+        DatastoreService.getOfy().delete().entity(this);
     }
 }

@@ -36,6 +36,6 @@ public class Inscripto implements IModel {
 
     @Override
     public void delete() {
-
+        DatastoreService.getOfy().delete().entity(this);
     }
 }

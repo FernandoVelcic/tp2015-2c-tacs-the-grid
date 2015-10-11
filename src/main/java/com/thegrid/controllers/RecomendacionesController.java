@@ -33,7 +33,7 @@ public class RecomendacionesController {
 
     @ApiMethod(httpMethod = "delete")
     public void deleteRecomendacion(@Named("id") Long id) {
-        DatastoreService.getOfy().delete().type(Recomendacion.class).id(id);
+        getRecomendacion(id).delete();
     }
 
     @ApiMethod(httpMethod = "post")

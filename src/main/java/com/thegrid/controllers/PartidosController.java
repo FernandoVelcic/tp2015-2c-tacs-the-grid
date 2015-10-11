@@ -29,7 +29,7 @@ public class PartidosController {
 
     @ApiMethod(httpMethod = "delete")
     public void deletePartido(@Named("id") Long id) {
-        DatastoreService.getOfy().load().type(Partido.class).id(id).now().delete();
+        getPartido(id).delete();
     }
 
     @ApiMethod(httpMethod = "post")

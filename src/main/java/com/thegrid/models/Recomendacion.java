@@ -38,6 +38,6 @@ public class Recomendacion implements IModel {
 
     @Override
     public void delete() {
-
+        DatastoreService.getOfy().delete().entity(this);
     }
 }
