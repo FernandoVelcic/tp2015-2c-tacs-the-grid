@@ -1,7 +1,12 @@
-app.controller('partidosController', function($scope, $http, $location, Partido, Recomendacion) {
+app.controller('partidosController', function($scope, $http, $location, Partido, Recomendacion, Inscripto) {
     Partido.query(function(data) {
         $scope.partidos = data.items;
     });
+
+
+    $("[name='switchcheckbox']").bootstrapSwitch();
+
+    checkParticipation.checked = true;
 
     $scope.deletePartido = function(partido){
         Partido.delete({ id: partido.id},
@@ -25,8 +30,23 @@ app.controller('partidosController', function($scope, $http, $location, Partido,
                     },
                     function(response){
                         $scope.partidos.push(response);
-                        $location.path("/");
+                        if($scope.checkParticipation.value){
+                            //var inscripto = {
+                            //    'partido': {
+                            //        'id': response.id
+                            //    },
+                            //};
+                            //Inscripto.save(inscripto, function(response){
+                            //    $location.path("/");
+                            //});
+                            $location.path("/")
+                        }
+                        else ;
                 });
+    };
+
+    $scope.newPartido = function(){
+                $location.path("/app/partidos/nuevo");
     };
 
     $scope.placeChanged = function(place) {

@@ -26,3 +26,13 @@ body{
     padding: 10px 10px 10px 10px;
     border-radius: 3px;
 }
+
+.listado-horizontal {
+    margin-left:-40px;
+}
+
+.listado-horizontal li {
+    float: left;
+    margin-right:50px;
+    list-style-type: none;
+}
