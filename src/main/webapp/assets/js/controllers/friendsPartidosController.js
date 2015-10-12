@@ -1,4 +1,6 @@
-app.controller('friendsPartidosController', function($scope, $http, $location, FriendPartido, Inscripto) {
+app.controller('friendsPartidosController', function($scope, $http, $location, FriendPartido, Inscripto, AccionesPartido) {
+    $scope.accionesPartido = AccionesPartido;
+
     FriendPartido.query(function(data) {
         $scope.partidos = data.items.map(function(partido){
             partido.inscripcion = undefined;
@@ -12,22 +14,4 @@ app.controller('friendsPartidosController', function($scope, $http, $location, F
             });
         });
     });
-
-    $scope.anotarme = function(partido){
-        var inscripto = {
-            'partido': {
-                'id': partido.id
-            }
-        };
-
-        Inscripto.save(inscripto, function(response){
-            partido.inscripcion = response;
-        });
-    };
-
-    $scope.desanotarme = function(partido){
-        Inscripto.delete({ id: partido.inscripcion.id}, function (response) {
-            partido.inscripcion = undefined;
-        });
-    };
 });

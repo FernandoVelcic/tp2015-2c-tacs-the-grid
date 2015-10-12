@@ -23,6 +23,4 @@ app.controller('recomendacionesController', function ($scope, $http, Recomendaci
             borrar(recomendacion);
         });
     };
-
-
 });

@@ -22,11 +22,11 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/app/partidos', {
             templateUrl: 'views/partidos.html',
-            controller: 'partidosController'
+            controller: 'misPartidosController'
         })
         .when('/app/partidos/nuevo', {
             templateUrl: 'views/nuevoPartido.html',
-            controller: 'partidosController'
+            controller: 'nuevoPartidoController'
         })
         .when('/app/friends/partidos', {
             templateUrl: 'views/friends/partidos.html',
