@@ -1,7 +1,3 @@
-/**
- * Created by eayzenberg on 12/10/2015.
- */
-
 app.controller('nuevoPartidoController', function($scope, $http, $location, Partido, Recomendacion, Inscripto) {
     Partido.query(function(data) {
         $scope.partidos = data.items;

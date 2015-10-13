@@ -1,7 +1,3 @@
-/**
- * Created by eayzenberg on 12/10/2015.
- */
-
 app.controller('misPartidosController', function($scope, $location, Partido, Inscripto, Recomendacion, AccionesPartido) {
 
     $scope.accionesPartido = AccionesPartido;
