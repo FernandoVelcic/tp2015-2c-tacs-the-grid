@@ -4,10 +4,10 @@ app.controller('partidoController', function($scope, $location, $routeParams, Pa
 
     Partido.get({ id: $routeParams.id }, function(data) {
         $scope.partido = data;
+    });
 
-        Inscripto.query(function(data) {
-            $scope.inscriptos = data;
-        });
+    Inscripto.query(function(data) {
+        $scope.inscriptos = data.items;
     });
 
     $scope.onEliminar = function(partido){
@@ -21,5 +21,5 @@ app.controller('partidoController', function($scope, $location, $routeParams, Pa
             }
         };
         Recomendacion.save(recomendacion, function() {})
-    }
+    };
 });
