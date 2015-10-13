@@ -2,6 +2,8 @@
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ngMap']);
 
 app.config(function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+
     $routeProvider
 
         .when('/', {
@@ -28,6 +30,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/nuevoPartido.html',
             controller: 'nuevoPartidoController'
         })
+        .when('/app/partidos/:id', {
+            templateUrl: 'views/partido.html',
+            controller: 'partidoController'
+        })
         .when('/app/friends/partidos', {
             templateUrl: 'views/friends/partidos.html',
             controller: 'friendsPartidosController'
@@ -39,8 +45,6 @@ app.config(function($routeProvider, $locationProvider) {
         .otherwise({
             redirectTo: '/error'
         });
-
-    $locationProvider.html5Mode(true);
 });
 
 app.factory("Partido", function($resource) {

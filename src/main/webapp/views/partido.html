@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Partido: #{{partido.id}}</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <button type="button" class="btn btn-default"  style="margin-top: 8px;" ng-click="onNuevoPartido()">
+                    Anotarme</button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
+        <td>{{ inscripto.partido.deporte }}</td>
+        <td>{{ inscripto.partido.cant_personas }}</td>
+        <td>{{ inscripto.partido.lugar}}</td>
+    </tr>
+    </tbody>
+</table>

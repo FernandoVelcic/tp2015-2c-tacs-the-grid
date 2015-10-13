@@ -19,6 +19,7 @@
         <th style="text-align: center;">Deporte</th>
         <th style="text-align: center;">Cantidad Personas</th>
         <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;"></th>
     </tr>
     </thead>
     <tbody>
@@ -27,11 +28,14 @@
         <td>{{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
         <td style="text-align: right">
-            <button class="btn btn-danger" ng-click="onEliminar(partido)">
-                <span class="glyphicons"></span>Eliminar
+            <button class="btn btn-info" ng-click="onInfo(partido)">
+                <span class="glyphicons"></span>Info
             </button>
             <button class="btn btn-success" ng-click="onRecomendar(partido)">
                 <span class="glyphicons"></span>Recomendar
+            </button>
+            <button class="btn btn-danger" ng-click="onEliminar(partido)">
+                <span class="glyphicons"></span>Eliminar
             </button>
         </td>
         <td style="width: 100px">

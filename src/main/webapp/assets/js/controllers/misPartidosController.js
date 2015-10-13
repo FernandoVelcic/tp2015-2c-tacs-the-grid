@@ -20,6 +20,10 @@ app.controller('misPartidosController', function($scope, $location, Partido, Ins
         $location.path("/app/partidos/nuevo");
     };
 
+    $scope.onInfo = function(partido){
+        $location.path("/app/partidos/" + partido.id);
+    };
+
     $scope.onEliminar = function(partido){
         Partido.delete({ id: partido.id},
             function () {$scope.partidos.splice($scope.partidos.indexOf(partido), 1);});
