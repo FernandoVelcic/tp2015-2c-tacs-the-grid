@@ -1,7 +1,3 @@
-/**
- * Created by eayzenberg on 12/10/2015.
- */
-
 app.factory('AccionesPartido', function (Inscripto) {
     //aca podrian haber atributos privados
 
