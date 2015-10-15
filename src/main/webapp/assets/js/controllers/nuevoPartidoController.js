@@ -1,4 +1,4 @@
-app.controller('nuevoPartidoController', function($scope, $http, $location, Partido, Recomendacion, Inscripto) {
+app.controller('nuevoPartidoController', function($scope, $http, $location, Partido, AccionesPartido) {
     Partido.query(function(data) {
         $scope.partidos = data.items;
     });
@@ -17,18 +17,7 @@ app.controller('nuevoPartidoController', function($scope, $http, $location, Part
             },
             function(response){
                 $scope.partidos.push(response);
-                if(switchState){
-                    $location.path("/")
-                    var inscripto = {
-                        'partido': {
-                            'id': response.id
-                        },
-                    };
-                    Inscripto.save(inscripto, function(response){
-
-                    });
-                }
-
+                if(switchState) AccionesPartido.anotarme(response);
                 $location.path("app/partidos");
             });
     };
@@ -36,11 +25,6 @@ app.controller('nuevoPartidoController', function($scope, $http, $location, Part
     $scope.onCancelar = function () {
         $location.path("app/partidos");
     }
-
-    $scope.coordenadasBsAs = {
-        latitude: 37.3694868,
-        longitude: -5.9803275
-    };
 
     $scope.placeChanged = function(place) {
         $scope.types = "['address']";
