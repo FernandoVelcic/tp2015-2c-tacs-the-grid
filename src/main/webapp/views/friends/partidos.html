@@ -23,7 +23,7 @@
     <tbody>
     <tr style="text-align: center;" ng-repeat="partido in partidos">
         <td>{{ partido.deporte }}</td>
-        <td>{{ partido.cant_personas }}</td>
+        <td><label>{{partido.cantInscriptos}}  de </label> {{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
         <td>{{ partido.usuario.facebook_id }}</td>
         <td>
