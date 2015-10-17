@@ -1,6 +1,34 @@
 
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ngMap']);
 
+app.run(['$rootScope', '$window', 'fbAuth',
+    function($rootScope, $window, fbAuth) {
+        $rootScope.user = {};
+        $window.fbAsyncInit = function() {
+            FB.init({
+                appId: '793357694115348',
+                status: true,
+                cookie: true,
+                xfbml: true
+            });
+            fbAuth.watchAuthenticationStatusChange();
+        };
+
+        (function(d){
+            var js,
+                id = 'facebook-jssdk',
+                ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement('script');
+            js.id = id;
+            js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+    }]);
+
 app.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 

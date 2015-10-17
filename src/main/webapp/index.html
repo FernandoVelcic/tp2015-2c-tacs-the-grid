@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap/bootstrap-theme.min.css"/>
     <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap/bootstrap-switch.css">
     <link type="text/css" rel="stylesheet" href="/assets/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/animations.css"/>
 </head>
 <body ng-controller="mainController">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -35,22 +36,7 @@
 					</li>
                     <li><a href="/app/recomendaciones">Recomendaciones</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-
-                                <img class="logo-user img-rounded"  src="https://lh4.ggpht.com/nec5xcJE97Fs1FiwhWF2K7089elbt5rq30L8Lzhg-sgy1RsFV0fPRoaXV5JUnfGbE8Wx=w32">
-                                Pepe<b class="caret"></b>
-
-
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/app/partidos">Mis partidos</a></li>
-                            <li><a href="/app/logout">Logout</a></li>
-                        </ul>
-                    </li>
-
+                <ul class="nav navbar-nav navbar-right" ng-include="authTemplate.url">
                 </ul>
             </div>
         </div>
@@ -74,6 +60,7 @@
     <script src="assets/libs/places-auto-complete.js"></script>
     <!--Scripts-->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/utils.js"></script>
     <script src="assets/js/controllers/mainController.js"></script>
     <script src="assets/js/controllers/recomendacionesController.js"></script>
     <script src="assets/js/controllers/friendsPartidosController.js"></script>
@@ -83,6 +70,7 @@
     <script src="assets/js/controllers/emptyController.js"></script>
     <script src="assets/js/controllers/partidoController.js"></script>
     <script src="assets/js/logics/AccionesPartido.js"></script>
+    <script src="assets/js/services/fbAuthService.js"></script>
 
 </body>
 </html>
