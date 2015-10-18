@@ -36,7 +36,12 @@
 					</li>
                     <li><a href="/app/recomendaciones">Recomendaciones</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right" ng-include="authTemplate.url">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></a>
+                    </li>
+                    <li class="dropdown" ng-include="authTemplate.url"></li>
                 </ul>
             </div>
         </div>

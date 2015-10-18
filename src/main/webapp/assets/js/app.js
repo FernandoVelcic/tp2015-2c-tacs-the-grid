@@ -3,7 +3,6 @@ var app = angular.module('app', ['ngRoute', 'ngResource', 'ngMap']);
 
 app.run(['$rootScope', '$window', 'fbAuth',
     function($rootScope, $window, fbAuth) {
-        $rootScope.user = {};
         $window.fbAsyncInit = function() {
             FB.init({
                 appId: '793357694115348',
@@ -12,6 +11,7 @@ app.run(['$rootScope', '$window', 'fbAuth',
                 xfbml: true
             });
             fbAuth.watchAuthenticationStatusChange();
+            fbAuth.getLoginStatus();
         };
 
         (function(d){
