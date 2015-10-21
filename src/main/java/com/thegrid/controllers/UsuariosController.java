@@ -14,14 +14,8 @@ import com.thegrid.services.DatastoreService;
 import java.util.ArrayList;
 import java.util.List;
 
-@Api(
-        name = "partidosmanager",
-        version = "v1",
-        scopes = {Constants.EMAIL_SCOPE},
-        clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
-        audiences = {Constants.ANDROID_AUDIENCE}
-)
-public class UsuariosController {
+
+public class UsuariosController extends ApiController {
 
 
     public List<Usuario> listUsuarios() {

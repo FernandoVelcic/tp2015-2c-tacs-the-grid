@@ -10,14 +10,8 @@ import com.thegrid.services.DatastoreService;
 
 import java.util.List;
 
-@Api(
-        name = "partidosmanager",
-        version = "v1",
-        scopes = {Constants.EMAIL_SCOPE},
-        clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
-        audiences = {Constants.ANDROID_AUDIENCE}
-)
-public class InscripcionesController {
+
+public class InscripcionesController extends ApiController {
 
     public List<Inscripto> listInscripciones() {
         return DatastoreService.getOfy().load().type(Inscripto.class).list();
