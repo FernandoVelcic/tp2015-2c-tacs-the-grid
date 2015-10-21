@@ -1,18 +1,15 @@
 app.controller('friendsPartidosController', function($scope, $http, $location, FriendPartido, Inscripto, AccionesPartido) {
     $scope.accionesPartido = AccionesPartido;
 
-
-
     FriendPartido.query(function(data) {
         $scope.partidos = data.items.map(function(partido){
             partido.inscripcion = undefined;
             return partido;
         });
 
-            $scope.partidos.forEach(function(partido){
-                partido.cantInscriptos=0;
-            });
-
+        $scope.partidos.forEach(function(partido){
+            partido.cantInscriptos=0;
+        });
 
         Inscripto.query(function(data) {
             data.items.forEach(function(inscripto){
@@ -20,10 +17,6 @@ app.controller('friendsPartidosController', function($scope, $http, $location, F
                 partido.inscripcion = inscripto;
                 partido.cantInscriptos++;
             });
-
-
         });
-
-
     });
 });
