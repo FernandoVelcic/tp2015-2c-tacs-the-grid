@@ -21,7 +21,7 @@ import java.util.List;
 public class PartidosController extends ApiController {
 
     public List<Partido> listPartidos(HttpServletRequest request) throws Exception {
-        AuthRequired(request);
+        //AuthRequired(request);
         return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 
