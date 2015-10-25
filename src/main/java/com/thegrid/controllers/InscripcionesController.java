@@ -1,6 +1,7 @@
 package com.thegrid.controllers;
 
 
+
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.Named;
@@ -17,7 +18,7 @@ import java.util.List;
         clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
         audiences = {Constants.ANDROID_AUDIENCE}
 )
-public class InscripcionesController {
+public class InscripcionesController extends ApiController {
 
     public List<Inscripto> listInscripciones() {
         return DatastoreService.getOfy().load().type(Inscripto.class).list();
