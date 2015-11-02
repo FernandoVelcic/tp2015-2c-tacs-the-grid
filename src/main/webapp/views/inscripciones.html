@@ -22,7 +22,7 @@
     <tbody>
     <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
         <td>{{ inscripto.partido.deporte }}</td>
-        <td>{{ inscripto.partido.cant_personas }}</td>
+        <td>{{ inscripto.partido.totalInscriptos }} de {{ inscripto.partido.cant_personas }}</td>
         <td>{{ inscripto.partido.lugar}}</td>
         <td>
             <button class="btn btn-danger" ng-click="desanotarme(inscripto)">

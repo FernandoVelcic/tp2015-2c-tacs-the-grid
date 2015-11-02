@@ -25,7 +25,7 @@
     <tbody>
     <tr style="text-align: center;" ng-repeat="partido in partidos">
         <td>{{ partido.deporte }}</td>
-        <td>{{ partido.cant_personas }}</td>
+        <td>{{ partido.totalInscriptos }} de {{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
         <td style="text-align: right">
             <button class="btn btn-info" ng-click="onInfo(partido)">

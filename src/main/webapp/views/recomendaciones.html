@@ -24,7 +24,7 @@
     <tbody>
     <tr style="text-align: center;" ng-repeat="recomendacion in recomendaciones">
         <td>{{ recomendacion.partido.deporte }}</td>
-        <td>{{ recomendacion.partido.cant_personas }}</td>
+        <td>{{ recomendacion.partido.totalInscriptos }} de {{ recomendacion.partido.cant_personas }}</td>
         <td>{{ recomendacion.partido.lugar}}</td>
         <td>{{ recomendacion.usuario.facebook_id }}</td>
         <td>
