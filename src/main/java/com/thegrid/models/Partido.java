@@ -47,4 +47,11 @@ public class Partido implements IModel {
         DatastoreService.getOfy().delete().keys(DatastoreService.getOfy().load().type(Recomendacion.class).filter("partido", this).keys());
         DatastoreService.getOfy().delete().entity(this);
     }
+
+    public Integer getTotalInscriptos() {
+        return DatastoreService.getOfy().load().type(Inscripto.class).filter("partido", this).count();
+    }
+
+
+
 }
