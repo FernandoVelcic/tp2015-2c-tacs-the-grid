@@ -23,12 +23,18 @@ public class Inscripto implements IModel {
     @Index
     private Ref<Partido> partido;
     public Partido getPartido() { return partido.get(); }
-    public void setPartido(Partido partido) { this.partido = Ref.create(partido); }
+    public void setPartido(Partido partido) {
+        this.partido = Ref.create(partido);
+
+        //Cuando se setee el partido actualizar puesto de inscripcion
+        puesto = "Titular";
+        if(this.getPartido().getTotalInscriptos() >= this.getPartido().getCant_personas()) {
+            puesto = "Suplente";
+        }
+    }
 
     public Inscripto() {
         //mock
-        puesto = "Titular";
-
         Usuario usertest = new Usuario();
         DatastoreService.getOfy().save().entity(usertest).now();
         usuario = Ref.create(usertest);
