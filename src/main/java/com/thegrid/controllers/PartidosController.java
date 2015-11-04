@@ -6,6 +6,7 @@ import com.google.api.server.spi.config.ApiReference;
 import com.google.api.server.spi.config.Named;
 import com.thegrid.Constants;
 import com.thegrid.models.Partido;
+import com.thegrid.models.Usuario;
 import com.thegrid.services.DatastoreService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,8 @@ import java.util.List;
 public class PartidosController extends ApiController {
 
     public List<Partido> listPartidos(HttpServletRequest request) throws Exception {
-        //AuthRequired(request);
+        //Usuario usuario = AuthRequired(request);
+        //System.out.println("Db id: " + usuario.getId()+" Facebook id: " + usuario.getFacebook_id()+" Token: "+usuario.getToken());
         return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 
