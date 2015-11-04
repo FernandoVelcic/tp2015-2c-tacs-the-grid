@@ -1,4 +1,4 @@
-app.controller('friendsPartidosController', function($scope, $http, $location, FriendPartido, Inscripto, AccionesPartido) {
+app.controller('friendsPartidosController', function($scope, $location, FriendPartido, Inscripto, AccionesPartido) {
     $scope.accionesPartido = AccionesPartido;
 
     FriendPartido.query(function(data) {

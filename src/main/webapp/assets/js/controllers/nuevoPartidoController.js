@@ -1,5 +1,9 @@
 app.controller('nuevoPartidoController', function($scope, $http, $location, Partido, AccionesPartido) {
+
+    $scope.partidos = [];
+
     Partido.query(function(data) {
+        console.log(JSON.stringify(data.items));
         $scope.partidos = data.items;
     });
 
@@ -16,6 +20,7 @@ app.controller('nuevoPartidoController', function($scope, $http, $location, Part
                 'lugar': $scope.address
             },
             function(response){
+                console.log(JSON.stringify(response));
                 $scope.partidos.push(response);
                 if(switchState) AccionesPartido.anotarme(response);
                 $location.path("app/partidos");

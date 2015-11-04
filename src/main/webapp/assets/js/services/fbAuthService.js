@@ -1,4 +1,4 @@
-app.service('fbAuth',['$rootScope',  function($rootScope) {
+app.service('fbAuth',['$rootScope', 'TokenHandler','$http',  function($rootScope, tokenHandler, $http) {
 
     this.getLoginStatus = function(){
         var _self = this;
@@ -26,6 +26,8 @@ app.service('fbAuth',['$rootScope',  function($rootScope) {
     this.setUserInfo = function(response){
         var _self = this;
         if (response.status === 'connected') {
+            //Seteo custom header
+            $http.defaults.headers.common['x-access-token']= response.authResponse.accessToken;
             window.localStorage['accessToken'] = response.authResponse.accessToken;
             _self.getUserInfo();
             $rootScope.$apply(function() {
@@ -33,7 +35,8 @@ app.service('fbAuth',['$rootScope',  function($rootScope) {
             });
         }
         else {
-            window.localStorage['accessToken'] = '';
+            $http.defaults.headers.common['x-access-token']= null;
+            window.localStorage['accessToken'] = null;
             $rootScope.$apply(function(){
                 $rootScope.user = {};
                 $rootScope.authTemplate = authTemplates[0];

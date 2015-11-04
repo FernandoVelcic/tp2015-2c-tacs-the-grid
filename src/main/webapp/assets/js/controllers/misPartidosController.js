@@ -1,7 +1,6 @@
-app.controller('misPartidosController', function($scope, $location, Partido, Inscripto, Recomendacion, AccionesPartido) {
+app.controller('misPartidosController', function($scope,$location, Partido, Inscripto, Recomendacion, AccionesPartido) {
 
     $scope.accionesPartido = AccionesPartido;
-
     Partido.query(function(data) {
         $scope.partidos = data.items.map(function(partido){
             partido.inscripcion = undefined;

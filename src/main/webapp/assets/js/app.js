@@ -75,30 +75,32 @@ app.config(function($routeProvider, $locationProvider) {
         });
 });
 
-app.factory("Partido", function($resource) {
+app.factory("Partido", ['$resource', function($resource) {
+
     return $resource("/_ah/api/partidosmanager/v1/partido/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
-});
+}]);
 
-app.factory("Inscripto", function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/inscripto/:id", null,
+app.factory("Inscripto", ['$resource', function($resource) {
+    return  $resource("/_ah/api/partidosmanager/v1/inscripto/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
-});
+}]);
 
-app.factory("FriendPartido", function($resource) {
+app.factory("FriendPartido", ['$resource', function($resource) {
     return $resource("/_ah/api/partidosmanager/v1/friends/partidos/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
-});
 
-app.factory("Recomendacion", function($resource) {
+}]);
+
+app.factory("Recomendacion", ['$resource', function($resource) {
     return $resource("/_ah/api/partidosmanager/v1/recomendacion/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
-});
+}]);
