@@ -1,4 +1,4 @@
-app.service('fbAuth',['$rootScope', 'TokenHandler','$http',  function($rootScope, tokenHandler, $http) {
+app.service('fbAuth',['$rootScope', '$http',  function($rootScope, $http) {
 
     this.getLoginStatus = function(){
         var _self = this;
