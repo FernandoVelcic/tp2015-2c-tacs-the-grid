@@ -1,4 +1,7 @@
 app.controller('recomendacionesController', function ($scope, $http, Recomendacion, Inscripto) {
+
+    $scope.recomendaciones = [];
+
     Recomendacion.query(function(data) {
         $scope.recomendaciones = data.items;
     });

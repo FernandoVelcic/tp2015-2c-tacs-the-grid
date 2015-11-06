@@ -1,5 +1,7 @@
 app.controller('misPartidosController', function($scope,$location, Partido, Inscripto, Recomendacion, AccionesPartido) {
 
+    $scope.partidos = [];
+
     $scope.accionesPartido = AccionesPartido;
     Partido.query(function(data) {
         $scope.partidos = data.items.map(function(partido){

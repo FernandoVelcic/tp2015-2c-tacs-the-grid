@@ -1,4 +1,4 @@
-app.service('fbAuth',['$rootScope', '$http',  function($rootScope, $http) {
+app.service('fbAuth',['$rootScope', '$http', '$timeout', '$location',  function($rootScope, $http, $timeout, $location) {
 
     this.getLoginStatus = function(){
         var _self = this;
@@ -17,8 +17,11 @@ app.service('fbAuth',['$rootScope', '$http',  function($rootScope, $http) {
                 fields: 'first_name,last_name,name,picture'
             },
             function(res) {
-                $rootScope.user = _self.user = res;
-                $rootScope.$apply();
+                console.log(res);
+                $timeout(function() {
+                    $rootScope.loggedUser = true;
+                    $rootScope.user = _self.user = res
+                })
             }
         );
     }
@@ -29,18 +32,24 @@ app.service('fbAuth',['$rootScope', '$http',  function($rootScope, $http) {
             //Seteo custom header
             $http.defaults.headers.common['x-access-token']= response.authResponse.accessToken;
             window.localStorage['accessToken'] = response.authResponse.accessToken;
+
             _self.getUserInfo();
-            $rootScope.$apply(function() {
+
+            $timeout(function() {
                 $rootScope.authTemplate = authTemplates[1];
             });
         }
         else {
             $http.defaults.headers.common['x-access-token']= null;
             window.localStorage['accessToken'] = null;
-            $rootScope.$apply(function(){
+
+            $timeout(function(){
                 $rootScope.user = {};
+                $rootScope.loggedUser = false;
                 $rootScope.authTemplate = authTemplates[0];
             });
+
+            $location.path('/');
         }
     }
 }]);

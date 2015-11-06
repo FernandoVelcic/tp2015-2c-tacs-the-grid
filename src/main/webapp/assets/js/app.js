@@ -1,8 +1,9 @@
 
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ngMap']);
 
-app.run(['$rootScope', '$window', 'fbAuth',
-    function($rootScope, $window, fbAuth) {
+app.run(['$rootScope', '$window', '$location', 'fbAuth',
+    function($rootScope, $window, $location, fbAuth) {
+
         $window.fbAsyncInit = function() {
             FB.init({
                 appId: '793357694115348',
@@ -12,8 +13,28 @@ app.run(['$rootScope', '$window', 'fbAuth',
             });
             fbAuth.watchAuthenticationStatusChange();
             fbAuth.getLoginStatus();
-        };
 
+            $rootScope.nextRoute = {templateUrl: ''};
+            //Watch route changes
+            $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+
+                if($rootScope.nextRoute.templateUrl != next.templateUrl &&
+                    next.templateUrl != 'views/home.html' && !$rootScope.loggedUser){
+
+                    event.preventDefault();
+                    $rootScope.nextRoute = next;
+
+                    FB.login(function(response){
+                        if (response.authResponse) {
+                            $location.path(next.originalPath);
+                        }
+                        else{
+                            alert("No te logeaste correctamente!")
+                        }
+                    });
+                }
+            });
+        };
         (function(d){
             var js,
                 id = 'facebook-jssdk',

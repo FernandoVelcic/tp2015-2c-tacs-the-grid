@@ -1,4 +1,6 @@
 app.controller('inscripcionesController', function($scope, $http, $location, Inscripto) {
+    $scope.inscriptos = [];
+
     Inscripto.query(function(data) {
         $scope.inscriptos = data.items;
     });
