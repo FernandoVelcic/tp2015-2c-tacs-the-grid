@@ -12,7 +12,7 @@
 				com.thegrid.controllers.PartidosController,
 				com.thegrid.controllers.RecomendacionesController,
 				com.thegrid.controllers.UsuariosController,
-				com.thegrid.controllers.PublicacionfbController,
+				com.thegrid.controllers.PublicacionFBController,
 				com.thegrid.controllers.InscripcionesController
 			</param-value>
 		</init-param>

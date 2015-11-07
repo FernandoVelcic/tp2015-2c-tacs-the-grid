@@ -7,5 +7,5 @@ import lombok.Setter;
 public class PublicacionFB {
     @Getter
     @Setter
-    private String message = "";
+    private String message;
 }

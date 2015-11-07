@@ -21,11 +21,11 @@ import javax.servlet.http.HttpServletRequest;
         clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
         audiences = {Constants.ANDROID_AUDIENCE}
 )
-public class PublicacionfbController extends ApiController {
+public class PublicacionFBController extends ApiController {
 
     @ApiMethod(httpMethod = "post")
     public PublicacionFB insertPublicacionFB(PublicacionFB publicacion, HttpServletRequest request) throws Exception {
-        //Publicar a biografia :p
+
         String xAT = request.getHeader("x-access-token");
 
         if(xAT == null) {

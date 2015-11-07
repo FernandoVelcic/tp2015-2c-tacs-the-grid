@@ -15,26 +15,10 @@ app.factory('AccionesPartido', function (Inscripto, PublicacionFB) {
             });
 
             var publicacionFB = {
-               'message': "Me inscribo al partido " + partido.id + " ¡yeeeeey!"
+               'message': "Me acabo de inscribir al partido de " + partido.deporte +", en "+ partido.lugar
             }
 
-            var accessToken;
-
-            FB.login(function(response){
-                if (response.authResponse) {
-                    //accessToken = response.accessToken;
-                    //alert(response.authResponse.grantedScopes);
-
-                    PublicacionFB.save(publicacionFB, function(response) {
-                        alert(response);
-                    });
-                }
-                else{
-                    alert("No te logeaste correctamente!")
-                }
-            }, {
-                scope: 'publish_actions',
-                return_scopes: true
+            PublicacionFB.save(publicacionFB, function(response) {
             });
         },
         desanotarme: function(partido){
