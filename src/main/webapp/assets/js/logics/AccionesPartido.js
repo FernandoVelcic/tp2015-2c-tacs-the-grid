@@ -22,16 +22,8 @@ app.factory('AccionesPartido', function (Inscripto, PublicacionFB) {
 
             FB.login(function(response){
                 if (response.authResponse) {
-                    accessToken = response.accessToken;
-                    alert(response.authResponse.grantedScopes);
-
-                    var objetoHTTP = {
-                        method: 'POST',
-                        url: '/_ah/api/partidosmanager/v1/publicacionfb',
-                        headers: {'Content-Type': 'application/json',
-                                  'x-access-token': accessToken},
-                        data: publicacionFB
-                    }
+                    //accessToken = response.accessToken;
+                    //alert(response.authResponse.grantedScopes);
 
                     PublicacionFB.save(publicacionFB, function(response) {
                         alert(response);

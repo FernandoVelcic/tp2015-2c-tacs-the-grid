@@ -32,7 +32,7 @@ app.run(['$rootScope', '$window', '$location', 'fbAuth',
                             alert("No te logeaste correctamente!")
                         }
                     }, {
-                        scope: 'manage_pages, user_friends, publish_actions, publish_pages'
+                        scope: 'user_friends, publish_actions, publish_pages'
                     });
 
                 }

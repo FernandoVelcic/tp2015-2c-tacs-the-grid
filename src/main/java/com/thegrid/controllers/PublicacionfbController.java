@@ -21,10 +21,10 @@ import javax.servlet.http.HttpServletRequest;
         clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
         audiences = {Constants.ANDROID_AUDIENCE}
 )
-public class PublicacionFBController extends ApiController {
+public class PublicacionfbController extends ApiController {
 
     @ApiMethod(httpMethod = "post")
-    public PublicacionFB insertPublicacionFB(HttpServletRequest request) throws Exception {
+    public PublicacionFB insertPublicacionFB(PublicacionFB publicacion, HttpServletRequest request) throws Exception {
         //Publicar a biografia :p
         String xAT = request.getHeader("x-access-token");
 
@@ -37,7 +37,7 @@ public class PublicacionFBController extends ApiController {
 
         FacebookType publishMessageResponse =
                 facebookClient.publish("me/feed", FacebookType.class,
-                        Parameter.with("message", "RestFB test"));
+                        Parameter.with("message", publicacion.getMessage()));
 
         System.out.println("Published message ID: " + publishMessageResponse.getId());
 

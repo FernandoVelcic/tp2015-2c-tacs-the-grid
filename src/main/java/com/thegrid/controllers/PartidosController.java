@@ -37,7 +37,8 @@ public class PartidosController extends ApiController {
     }
 
     @ApiMethod(httpMethod = "post")
-    public Partido insertPartido(Partido partido) {
+    public Partido insertPartido(Partido partido, HttpServletRequest request) {
+        System.out.println(request.getHeader("x-access-token"));
         DatastoreService.getOfy().save().entity(partido).now();
         return partido;
     }
