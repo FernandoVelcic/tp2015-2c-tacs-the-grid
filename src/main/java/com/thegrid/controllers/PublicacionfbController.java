@@ -42,7 +42,7 @@ public class PublicacionFBController extends ApiController {
         System.out.println("Published message ID: " + publishMessageResponse.getId());
 
         PublicacionFB publicacionFB = new PublicacionFB();
-        publicacionFB.setMessage("Soy una devolucion");
+        publicacionFB.setMessage("Soy una devolucion.");
         return publicacionFB;
     }
 }

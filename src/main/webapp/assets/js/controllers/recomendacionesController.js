@@ -1,7 +1,6 @@
 app.controller('recomendacionesController', function ($scope, $http, Recomendacion, Inscripto) {
 
     $scope.recomendaciones = [];
-    alert("Pase x aca");
 
     Recomendacion.query(function(data) {
         $scope.recomendaciones = data.items;
