@@ -1,5 +1,7 @@
 package com.thegrid.controllers;
 
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -7,17 +9,28 @@ import com.restfb.Version;
 import com.restfb.types.FacebookType;
 import com.restfb.types.User;
 import com.thegrid.Constants;
+import com.thegrid.models.PublicacionFB;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Publicadorfb {
-    public static void publicarBiografia(HttpServletRequest request) throws Exception {
+@Api(
+        name = "partidosmanager",
+        version = "v1",
+        scopes = {Constants.EMAIL_SCOPE},
+        clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
+        audiences = {Constants.ANDROID_AUDIENCE}
+)
+public class PublicacionFBController extends ApiController{
 
+    @ApiMethod(httpMethod = "post")
+    public PublicacionFB insertPublicacionFB(HttpServletRequest request) throws Exception {
+        //Publicar a biografia :p
         String xAT = request.getHeader("x-access-token");
 
         if(xAT == null) {
             throw new Exception("x-access-token is required");
         }
+        System.out.println(xAT);
 
         FacebookClient facebookClient = new DefaultFacebookClient(xAT, Constants.FACEBOOK_APP_SECRET, Version.VERSION_2_5);
 
@@ -26,5 +39,9 @@ public class Publicadorfb {
                         Parameter.with("message", "RestFB test"));
 
         System.out.println("Published message ID: " + publishMessageResponse.getId());
+
+        PublicacionFB publicacionFB = new PublicacionFB();
+        publicacionFB.setMessage("Soy una devolucion");
+        return publicacionFB;
     }
 }

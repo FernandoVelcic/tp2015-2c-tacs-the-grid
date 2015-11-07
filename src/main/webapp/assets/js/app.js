@@ -31,7 +31,10 @@ app.run(['$rootScope', '$window', '$location', 'fbAuth',
                         else{
                             alert("No te logeaste correctamente!")
                         }
+                    }, {
+                        scope: 'manage_pages, user_friends, publish_actions, publish_pages'
                     });
+
                 }
             });
         };
@@ -121,6 +124,13 @@ app.factory("FriendPartido", ['$resource', function($resource) {
 
 app.factory("Recomendacion", ['$resource', function($resource) {
     return $resource("/_ah/api/partidosmanager/v1/recomendacion/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+}]);
+
+app.factory("PublicacionFB", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/publicacionfb/", null,
         {
             'query': { method:'GET', isArray: false }
         });
