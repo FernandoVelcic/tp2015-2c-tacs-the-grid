@@ -9,6 +9,7 @@ import com.restfb.Version;
 import com.restfb.types.FacebookType;
 import com.restfb.types.User;
 import com.thegrid.Constants;
+import com.thegrid.controllers.ApiController;
 import com.thegrid.models.PublicacionFB;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
         clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, Constants.IOS_CLIENT_ID},
         audiences = {Constants.ANDROID_AUDIENCE}
 )
-public class PublicacionFBController extends ApiController{
+public class PublicacionFBController extends ApiController {
 
     @ApiMethod(httpMethod = "post")
     public PublicacionFB insertPublicacionFB(HttpServletRequest request) throws Exception {

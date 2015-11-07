@@ -24,6 +24,18 @@ app.factory('AccionesPartido', function (Inscripto, PublicacionFB) {
                 if (response.authResponse) {
                     accessToken = response.accessToken;
                     alert(response.authResponse.grantedScopes);
+
+                    var objetoHTTP = {
+                        method: 'POST',
+                        url: '/_ah/api/partidosmanager/v1/publicacionfb',
+                        headers: {'Content-Type': 'application/json',
+                                  'x-access-token': accessToken},
+                        data: publicacionFB
+                    }
+
+                    PublicacionFB.save(publicacionFB, function(response) {
+                        alert(response);
+                    });
                 }
                 else{
                     alert("No te logeaste correctamente!")
@@ -31,22 +43,6 @@ app.factory('AccionesPartido', function (Inscripto, PublicacionFB) {
             }, {
                 scope: 'publish_actions',
                 return_scopes: true
-            });
-
-            //FB.getLoginStatus(function (response){
-            //    accessToken = response.authResponse.accessToken;
-            //});
-
-            var objetoHTTP = {
-                method: 'POST',
-                url: '/_ah/api/partidosmanager/v1/publicacionfb',
-                headers: {'Content-Type': 'application/json',
-                          'x-access-token': accessToken},
-                data: publicacionFB
-            }
-
-            PublicacionFB.save(publicacionFB, function(response) {
-                alert(response);
             });
         },
         desanotarme: function(partido){
