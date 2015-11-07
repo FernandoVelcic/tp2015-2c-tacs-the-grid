@@ -25,24 +25,15 @@ public class PublicacionFBController extends ApiController {
 
     @ApiMethod(httpMethod = "post")
     public PublicacionFB insertPublicacionFB(PublicacionFB publicacion, HttpServletRequest request) throws Exception {
+        String token = getAccessToken(request);
+//      System.out.println(token); esto es secreto :O
 
-        String xAT = request.getHeader("x-access-token");
-
-        if(xAT == null) {
-            throw new Exception("x-access-token is required");
-        }
-        System.out.println(xAT);
-
-        FacebookClient facebookClient = new DefaultFacebookClient(xAT, Constants.FACEBOOK_APP_SECRET, Version.VERSION_2_5);
-
+        FacebookClient facebookClient = new DefaultFacebookClient(token, Constants.FACEBOOK_APP_SECRET, Version.VERSION_2_5);
         FacebookType publishMessageResponse =
                 facebookClient.publish("me/feed", FacebookType.class,
                         Parameter.with("message", publicacion.getMessage()));
 
-        System.out.println("Published message ID: " + publishMessageResponse.getId());
-
-        PublicacionFB publicacionFB = new PublicacionFB();
-        publicacionFB.setMessage("Soy una devolucion.");
-        return publicacionFB;
+        System.out.println("Published message ID: " + publishMessageResponse.getId()); //control
+        return publicacion;
     }
 }
