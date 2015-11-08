@@ -1,4 +1,4 @@
-app.factory('AccionesPartido', function (Inscripto, PublicacionFB) {
+app.factory('AccionesPartido', function (Inscripto) {
     return {
         anotarme: function(partido){
             var inscripto = {
