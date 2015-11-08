@@ -4,6 +4,9 @@ var app = angular.module('app', ['ngRoute', 'ngResource', 'ngMap']);
 app.run(['$rootScope', '$window', '$location', 'fbAuth',
     function($rootScope, $window, $location, fbAuth) {
 
+        $rootScope.cargandoHttp=true;
+        $rootScope.splashes = splashes;
+
         $window.fbAsyncInit = function() {
             FB.init({
                 appId: '793357694115348',
@@ -110,9 +113,15 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             redirectTo: '/error'
         });
 
-    $httpProvider.interceptors.push(function() {
+    $httpProvider.interceptors.push('myHttpInterceptor');
+});
+
+app.factory('myHttpInterceptor', ['$q', '$rootScope',
+    function ($q, $rootScope) {
+        $rootScope.cargandoHttp=true;
+        $rootScope.http = null;
         return {
-            request: function (config) {
+            'request': function (config) {
                 var xAT = config.headers["x-access-token"];
                 //alert(xAT);
                 //console.log(xAT);
@@ -120,12 +129,13 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
                     //alert("Levantando header de localStorage....");
                     console.log("Levantando header de localStorage....");
                     config.headers["x-access-token"] = window.localStorage['accessToken'];
+                    $rootScope.cargandoHttp=false;
                 }
                 return config;
             }
-        };
-    });
-});
+        }
+    }
+]);
 
 app.factory("Partido", ['$resource', function($resource) {
 
