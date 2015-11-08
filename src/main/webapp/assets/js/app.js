@@ -90,6 +90,18 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: 'views/friends/partidos.html',
             controller: 'friendsPartidosController'
         })
+        .when('/app/admin/partidos', {
+            templateUrl: 'views/admin/partidos.html',
+            controller: 'adminPartidosController'
+        })
+        .when('/app/admin/usuarios', {
+            templateUrl: 'views/admin/usuarios.html',
+            controller: 'adminUsuariosController'
+        })
+        .when('/app/admin/inscripciones', {
+            templateUrl: 'views/admin/inscripciones.html',
+            controller: 'adminInscripcionesController'
+        })
         .when('/error', {
             templateUrl: 'views/error.html',
             controller: 'emptyController'
