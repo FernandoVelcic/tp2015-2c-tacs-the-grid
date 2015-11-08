@@ -31,16 +31,15 @@ public class Partido implements IModel {
     public Usuario getUsuario() {
         return usuario.get();
     }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = Ref.create(usuario);
+    }
 
     public Partido() {
         //mock
         this.deporte = "Futbol";
         this.cant_personas = 5;
         this.lugar = "Corrientes 3200";
-
-        Usuario usertest = new Usuario();
-        DatastoreService.getOfy().save().entity(usertest).now();
-        usuario = Ref.create(usertest);
     }
 
     @Override
