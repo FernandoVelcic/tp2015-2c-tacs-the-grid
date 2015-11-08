@@ -40,6 +40,7 @@ public class PartidosController extends ApiController {
     @ApiMethod(httpMethod = "post")
     public Partido insertPartido(Partido partido, HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
+        partido.setUsuario(usuario);
         DatastoreService.getOfy().save().entity(partido).now();
         return partido;
     }
