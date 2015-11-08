@@ -28,9 +28,14 @@ public class Inscripto implements IModel {
 
         //Cuando se setee el partido actualizar puesto de inscripcion
         puesto = "Titular";
-        if(this.getPartido().getTotalInscriptos() >= this.getPartido().getCant_personas()) {
-            puesto = "Suplente";
-        }
+        if (partidoCompleto()){ puesto = "Suplente";}
+
+    }
+
+    public boolean partidoCompleto() {
+        boolean res=false;
+       if (this.getPartido().getTotalInscriptos() >= this.getPartido().getCant_personas()){res = true;};
+        return res;
     }
 
     public Inscripto() {
@@ -40,8 +45,17 @@ public class Inscripto implements IModel {
         usuario = Ref.create(usertest);
     }
 
+
     @Override
     public void delete() {
         DatastoreService.getOfy().delete().entity(this);
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
     }
 }

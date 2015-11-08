@@ -24,6 +24,8 @@ public class Partido implements IModel {
     private Integer cant_personas;
     @Getter
     private String lugar;
+    @Getter
+    private Integer totalParticipantes;
 
     private Ref<Usuario> usuario;
     public Usuario getUsuario() {
@@ -53,5 +55,15 @@ public class Partido implements IModel {
     }
 
 
+    public Integer getCant_personas() {
+        return cant_personas;
+    }
 
+    public Integer getTotalParticipantes() {
+        return totalParticipantes;
+    }
+
+    public void setTotalParticipantes(Integer totalParticipantes) {
+        this.totalParticipantes = totalParticipantes;
+    }
 }
