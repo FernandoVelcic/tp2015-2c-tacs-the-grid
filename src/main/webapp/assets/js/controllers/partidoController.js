@@ -13,6 +13,7 @@ app.controller('partidoController', function($scope, $location, $routeParams, Pa
     $scope.onEliminar = function(partido){
         Partido.delete({ id: partido.id},
             function () {$scope.partidos.splice($scope.partidos.indexOf(partido), 1);});
+        $location.path("app/partidos");
     };
     $scope.onRecomendar = function(partido){
         var recomendacion = {
