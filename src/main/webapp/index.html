@@ -25,7 +25,7 @@
                 <a class="navbar-brand" href="/">Partidos Manager</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul ng-show="tengoHeader()" class="nav navbar-nav">
                     <li><a href="/">Inicio</a></li>
                     <li class="dropdown">
 					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Partidos<b class="caret"></b></a>
@@ -49,6 +49,10 @@
     <div class="container" id="main" ng-show="tengoHeader()">
         <div ng-view>
         </div>
+    </div>
+
+    <div ng-show="!tengoHeader()" style="width: 100%; margin-top: 60px; text-align: center">
+        <img src="assets/img/introPM.png">
     </div>
 
 
@@ -76,6 +80,9 @@
     <script src="assets/js/controllers/inscripcionesController.js"></script>
     <script src="assets/js/controllers/emptyController.js"></script>
     <script src="assets/js/controllers/partidoController.js"></script>
+    <script src="assets/js/controllers/admin/adminInscripcionesController.js"></script>
+    <script src="assets/js/controllers/admin/adminPartidosController.js"></script>
+    <script src="assets/js/controllers/admin/adminUsuariosController.js"></script>
     <script src="assets/js/logics/AccionesPartido.js"></script>
     <script src="assets/js/services/fbAuthService.js"></script>
 </body>

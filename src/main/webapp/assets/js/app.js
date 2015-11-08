@@ -90,6 +90,18 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: 'views/friends/partidos.html',
             controller: 'friendsPartidosController'
         })
+        .when('/app/admin/partidos', {
+            templateUrl: 'views/admin/partidos.html',
+            controller: 'adminPartidosController'
+        })
+        .when('/app/admin/usuarios', {
+            templateUrl: 'views/admin/usuarios.html',
+            controller: 'adminUsuariosController'
+        })
+        .when('/app/admin/inscripciones', {
+            templateUrl: 'views/admin/inscripciones.html',
+            controller: 'adminInscripcionesController'
+        })
         .when('/error', {
             templateUrl: 'views/error.html',
             controller: 'emptyController'
@@ -131,7 +143,7 @@ app.factory("Inscripto", ['$resource', function($resource) {
 }]);
 
 app.factory("FriendPartido", ['$resource', function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/friends/partidos/:id", null,
+    return $resource("/_ah/api/partidosmanager/v1/friends/partido/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
@@ -145,8 +157,22 @@ app.factory("Recomendacion", ['$resource', function($resource) {
         });
 }]);
 
-app.factory("PublicacionFB", ['$resource', function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/publicacionfb/", null,
+app.factory("AdminPartidos", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/partidos/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+}]);
+
+app.factory("AdminUsuarios", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/usuario/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+}]);
+
+app.factory("AdminInscripciones", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/inscripciones/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });

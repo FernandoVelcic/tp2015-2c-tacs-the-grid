@@ -19,24 +19,24 @@ import java.util.List;
 )
 public class UsuariosController extends ApiController {
 
-
+    @ApiMethod(path = "admin/usuario")
     public List<Usuario> listUsuarios() {
         return DatastoreService.getOfy().load().type(Usuario.class).list();
     }
 
+    @ApiMethod(path = "admin/usuario/{id}")
     public Usuario getUsuario(@Named("id") Long id) {
         return DatastoreService.getOfy().load().type(Usuario.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete")
+    @ApiMethod(path = "admin/usuario")
     public void deleteUsuario(@Named("id") Long id) {
         getUsuario(id).delete();
     }
 
-    @ApiMethod(httpMethod = "post")
+    @ApiMethod(httpMethod = "post", path = "admin/usuario")
     public Usuario insertUsuario(Usuario usuario) {
         DatastoreService.getOfy().save().entity(usuario).now();
         return usuario;
     }
-
 }
