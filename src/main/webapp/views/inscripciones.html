@@ -17,6 +17,7 @@
         <th style="text-align: center;">Deporte</th>
         <th style="text-align: center;">Cantidad Personas</th>
         <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;">De</th>
     </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
         <td>{{ inscripto.partido.deporte }}</td>
         <td>{{ inscripto.partido.totalInscriptos }} de {{ inscripto.partido.cant_personas }}</td>
         <td>{{ inscripto.partido.lugar}}</td>
+        <td>{{ inscripto.partido.usuario.name }}</td>
         <td>
             <button class="btn btn-danger" ng-click="desanotarme(inscripto)">
                 <span class="glyphicons"></span>Desanotarme
