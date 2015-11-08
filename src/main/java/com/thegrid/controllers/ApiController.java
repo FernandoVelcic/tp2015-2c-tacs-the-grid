@@ -9,6 +9,7 @@ import com.restfb.types.User;
 import com.thegrid.Constants;
 import com.thegrid.models.Usuario;
 import com.thegrid.services.DatastoreService;
+import com.thegrid.services.FacebookService;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,8 +20,8 @@ public class ApiController {
 
     protected Usuario AuthRequired(HttpServletRequest request) throws Exception {
         String token = getAccessToken(request);
-        FacebookClient facebookClient = new DefaultFacebookClient(token, Constants.FACEBOOK_APP_SECRET, Version.VERSION_2_5);
-        User user = facebookClient.fetchObject("me", User.class);
+
+        User user = FacebookService.getUser(token);
         Usuario usuario = DatastoreService.getOfy().load().type(Usuario.class).filter("facebook_id", user.getId()).first().now();
 
         if(usuario == null) {

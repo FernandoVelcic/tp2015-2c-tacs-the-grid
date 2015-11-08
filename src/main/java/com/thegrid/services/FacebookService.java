@@ -16,14 +16,15 @@ public class FacebookService {
         return new DefaultFacebookClient(token, Constants.FACEBOOK_APP_SECRET, Version.VERSION_2_5);
     }
 
+    public static User getUser(String token) {
+        return getFacebookClient(token).fetchObject("me", User.class);
+    }
+
     public static String getName(Usuario usuario) {
         if(usuario.getToken() == null)
             return "Unknown";
 
-        FacebookClient facebookClient = getFacebookClient(usuario.getToken());
-        User user = facebookClient.fetchObject("me", User.class);
-
-        return user.getName();
+        return getUser(usuario.getToken()).getName();
     }
 
     public static void publishPartido(Partido partido) {
