@@ -16,9 +16,15 @@ public class Recomendacion implements IModel {
 
     private Ref<Usuario> usuario;
     public Usuario getUsuario() { return usuario.get(); }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = Ref.create(usuario);
+    }
 
     private Ref<Usuario> from_usuario;
     public Usuario getFrom_usuario() { return from_usuario.get(); }
+    public void setFrom_usuario(Usuario usuario) {
+        this.from_usuario = Ref.create(usuario);
+    }
 
     @Index
     private Ref<Partido> partido;
@@ -26,14 +32,7 @@ public class Recomendacion implements IModel {
     public void setPartido(Partido partido) { this.partido = Ref.create(partido); }
 
     public Recomendacion() {
-        //mock
-        Usuario usertest = new Usuario();
-        DatastoreService.getOfy().save().entity(usertest).now();
-        usuario = Ref.create(usertest);
 
-        Usuario usertest2 = new Usuario();
-        DatastoreService.getOfy().save().entity(usertest2).now();
-        from_usuario = Ref.create(usertest2);
     }
 
     @Override
