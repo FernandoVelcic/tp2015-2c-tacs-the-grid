@@ -131,7 +131,7 @@ app.factory("Inscripto", ['$resource', function($resource) {
 }]);
 
 app.factory("FriendPartido", ['$resource', function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/friends/partidos/:id", null,
+    return $resource("/_ah/api/partidosmanager/v1/friends/partido/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
@@ -145,8 +145,22 @@ app.factory("Recomendacion", ['$resource', function($resource) {
         });
 }]);
 
-app.factory("PublicacionFB", ['$resource', function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/publicacionfb/", null,
+app.factory("AdminPartidos", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/partidos/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+}]);
+
+app.factory("AdminUsuarios", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/usuario/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+}]);
+
+app.factory("AdminInscripciones", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/inscripciones/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });

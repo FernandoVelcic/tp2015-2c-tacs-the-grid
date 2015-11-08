@@ -45,4 +45,40 @@ public class InscripcionesController extends ApiController {
         DatastoreService.getOfy().save().entity(inscripto).now();
         return inscripto;
     }
+
+    //Administracion
+
+    @ApiMethod(path="admin/inscripto")
+    public List<Inscripto> listInscripcionesAdmin(HttpServletRequest request) throws Exception {
+
+        //TODO: Segurizacion
+        Usuario usuario = AuthRequired(request);
+        return DatastoreService.getOfy().load().type(Inscripto.class).list();
+    }
+
+    @ApiMethod(path="admin/inscripto/{id}")
+    public Inscripto getInscriptoAdmin(@Named("id") Long id, HttpServletRequest request) throws Exception {
+
+        //TODO: Segurizacion
+        Usuario usuario = AuthRequired(request);
+        return DatastoreService.getOfy().load().type(Inscripto.class).id(id).now();
+    }
+
+    @ApiMethod(httpMethod = "delete", path="admin/inscripto")
+    public void deleteInscriptoAdmin(@Named("id") Long id, HttpServletRequest request) throws Exception {
+
+        //TODO: Segurizacion
+        Usuario usuario = AuthRequired(request);
+        getInscripto(id, request).delete();
+    }
+
+    @ApiMethod(httpMethod = "post", path="admin/inscripto")
+    public Inscripto insertInscriptoAdmin(Inscripto inscripto, HttpServletRequest request) throws Exception {
+
+        //TODO: Segurizacion
+        Usuario usuario = AuthRequired(request);
+        inscripto.setUsuario(usuario);
+        DatastoreService.getOfy().save().entity(inscripto).now();
+        return inscripto;
+    }
 }
