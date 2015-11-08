@@ -22,29 +22,31 @@ import java.util.List;
 public class PartidosController extends ApiController {
 
     public List<Partido> listPartidos(HttpServletRequest request) throws Exception {
-        //Usuario usuario = AuthRequired(request);
-        //System.out.println("Db id: " + usuario.getId()+" Facebook id: " + usuario.getFacebook_id()+" Token: "+usuario.getToken());
+        Usuario usuario = AuthRequired(request);
         return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 
-    public Partido getPartido(@Named("id") Long id) {
+    public Partido getPartido(@Named("id") Long id, HttpServletRequest request) throws Exception {
+        Usuario usuario = AuthRequired(request);
         return DatastoreService.getOfy().load().type(Partido.class).id(id).now();
     }
 
     @ApiMethod(httpMethod = "delete")
-    public void deletePartido(@Named("id") Long id) {
-        getPartido(id).delete();
+    public void deletePartido(@Named("id") Long id, HttpServletRequest request) throws Exception {
+        Usuario usuario = AuthRequired(request);
+        getPartido(id, request).delete();
     }
 
     @ApiMethod(httpMethod = "post")
-    public Partido insertPartido(Partido partido, HttpServletRequest request) {
-        System.out.println(request.getHeader("x-access-token"));
+    public Partido insertPartido(Partido partido, HttpServletRequest request) throws Exception {
+        Usuario usuario = AuthRequired(request);
         DatastoreService.getOfy().save().entity(partido).now();
         return partido;
     }
 
     @ApiMethod(path="friends/partidos")
-    public List<Partido> listFriendsPartidos() {
+    public List<Partido> listFriendsPartidos(HttpServletRequest request) throws Exception {
+        Usuario usuario = AuthRequired(request);
         return DatastoreService.getOfy().load().type(Partido.class).list();
     }
 }

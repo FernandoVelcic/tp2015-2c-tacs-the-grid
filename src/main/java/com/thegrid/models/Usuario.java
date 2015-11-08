@@ -4,6 +4,7 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.thegrid.services.DatastoreService;
+import com.thegrid.services.FacebookService;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,5 +31,9 @@ public class Usuario implements IModel {
     @Override
     public void delete() {
         DatastoreService.getOfy().delete().entity(this);
+    }
+
+    public String getName() {
+        return FacebookService.getName(this);
     }
 }
