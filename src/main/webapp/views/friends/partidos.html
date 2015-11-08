@@ -25,7 +25,7 @@
         <td>{{ partido.deporte }}</td>
         <td>{{ partido.totalInscriptos }} de {{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
-        <td>{{ partido.usuario.facebook_id }}</td>
+        <td>{{ partido.usuario.name }}</td>
         <td>
             <button ng-show="partido.inscripcion" class="btn btn-danger" ng-click="accionesPartido.desanotarme(partido)">
                 <span class="glyphicons"></span>Desanotarme
