@@ -53,7 +53,7 @@ app.run(['$rootScope', '$window', '$location', 'fbAuth',
         }(document));
     }]);
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function($routeProvider, $locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -97,6 +97,22 @@ app.config(function($routeProvider, $locationProvider) {
         .otherwise({
             redirectTo: '/error'
         });
+
+    $httpProvider.interceptors.push(function() {
+        return {
+            request: function (config) {
+                var xAT = config.headers["x-access-token"];
+                //alert(xAT);
+                //console.log(xAT);
+                if (!xAT) {
+                    //alert("Levantando header de localStorage....");
+                    console.log("Levantando header de localStorage....");
+                    config.headers["x-access-token"] = window.localStorage['accessToken'];
+                }
+                return config;
+            }
+        };
+    });
 });
 
 app.factory("Partido", ['$resource', function($resource) {
