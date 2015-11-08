@@ -28,7 +28,7 @@ public class FacebookService {
     }
 
     public static void publishPartido(Partido partido) {
-        String publish_message = "Partido: " + partido.getId();
+        String publish_message = "Cree el partido: #" + partido.getId() + " para participar vengan a PartidosManager!";
 
         FacebookClient facebookClient = getFacebookClient(partido.getUsuario().getToken());
         facebookClient.publish("me/feed", FacebookType.class,

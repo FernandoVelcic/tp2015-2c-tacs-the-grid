@@ -6,6 +6,7 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 import com.thegrid.services.DatastoreService;
+import com.thegrid.services.FacebookService;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -64,5 +65,9 @@ public class Partido implements IModel {
 
     public void setTotalParticipantes(Integer totalParticipantes) {
         this.totalParticipantes = totalParticipantes;
+    }
+
+    public void publish() {
+        FacebookService.publishPartido(this);
     }
 }
