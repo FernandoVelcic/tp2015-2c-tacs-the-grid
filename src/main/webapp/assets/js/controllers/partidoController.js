@@ -4,10 +4,14 @@ app.controller('partidoController', function($scope, $location, $routeParams, Pa
 
     Partido.get({ id: $routeParams.id }, function(data) {
         $scope.partido = data;
-    });
 
-    Inscripto.query(function(data) {
-        $scope.inscriptos = data.items;
+        Inscripto.query(function(data1) {
+            $scope.inscriptos = data1.items;
+
+            var inscriptoEncontrado = data1.items.find( function(inscr){ return $scope.partido.id ==  inscr.partido.id } );
+
+            $scope.partido.inscripcion = inscriptoEncontrado;
+        });
     });
 
     $scope.onEliminar = function(partido){

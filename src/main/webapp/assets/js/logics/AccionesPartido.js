@@ -8,18 +8,19 @@ app.factory('AccionesPartido', function (Inscripto, PublicacionFB) {
                 'partido': {
                     'id': partido.id
                 }
-            };
 
+            };
+            //console.log("pase x anotarme");
             Inscripto.save(inscripto, function(response){
                 partido.inscripcion = response;
             });
 
-            var publicacionFB = {
-               'message': "Me acabo de inscribir al partido de " + partido.deporte +", en "+ partido.lugar
-            }
+            //var publicacionFB = {
+            //   'message': "Me acabo de inscribir al partido de " + partido.deporte +", en "+ partido.lugar
+            //}
 
-            PublicacionFB.save(publicacionFB, function(response) {
-            });
+            //PublicacionFB.save(publicacionFB, function(response) {
+            //});
         },
         desanotarme: function(partido){
             Inscripto.delete({ id: partido.inscripcion.id}, function (response) {
