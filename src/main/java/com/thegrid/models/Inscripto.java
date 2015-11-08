@@ -6,6 +6,7 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Load;
 import com.thegrid.services.DatastoreService;
+import com.thegrid.services.FacebookService;
 import lombok.Getter;
 
 @Entity
@@ -55,4 +56,7 @@ public class Inscripto implements IModel {
     public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
+
+    public void notifyUser() { FacebookService.notifyUser(this);}
+
 }

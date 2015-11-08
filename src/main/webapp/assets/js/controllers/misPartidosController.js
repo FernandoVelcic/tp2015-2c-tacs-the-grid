@@ -2,18 +2,19 @@ app.controller('misPartidosController', function($scope,$location, Partido, Insc
 
     $scope.partidos = [];
 
-
     $scope.accionesPartido = AccionesPartido;
     Partido.query(function(data) {
         $scope.partidos = data.items.map(function(partido){
-            partido.inscripcion = undefined;
+            if(partido != undefined)
+                partido.inscripcion = undefined;
             return partido;
         });
 
         Inscripto.query(function(data) {
             data.items.forEach(function(inscripto){
                 var partido = $scope.partidos.find(function(p){ return p.id ==  inscripto.partido.id});
-                partido.inscripcion = inscripto;
+                if(partido != undefined)
+                    partido.inscripcion = inscripto;
             });
         });
     });
