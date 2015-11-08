@@ -23,7 +23,7 @@ public class PartidosController extends ApiController {
 
     public List<Partido> listPartidos(HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
-        return DatastoreService.getOfy().load().type(Partido.class).list();
+        return DatastoreService.getOfy().load().type(Partido.class).filter("usuario", usuario).list();
     }
 
     public Partido getPartido(@Named("id") Long id, HttpServletRequest request) throws Exception {

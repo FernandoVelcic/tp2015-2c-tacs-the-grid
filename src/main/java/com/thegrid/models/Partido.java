@@ -5,6 +5,7 @@ import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
+import com.googlecode.objectify.annotation.Index;
 import com.thegrid.services.DatastoreService;
 import com.thegrid.services.FacebookService;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Partido implements IModel {
     @Getter
     private Integer totalParticipantes;
 
+    @Index
     private Ref<Usuario> usuario;
     public Usuario getUsuario() {
         return usuario.get();
