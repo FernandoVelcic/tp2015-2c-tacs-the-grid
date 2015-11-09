@@ -23,7 +23,7 @@ public class RecomendacionesController extends ApiController {
 
     public List<Recomendacion> listRecomendaciones(HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
-        return DatastoreService.getOfy().load().type(Recomendacion.class).list();
+        return DatastoreService.getOfy().load().type(Recomendacion.class).filter("usuario", usuario).list();
     }
 
     public Recomendacion getRecomendacion(@Named("id") Long id, HttpServletRequest request) throws Exception {

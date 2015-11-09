@@ -18,6 +18,7 @@ public class Inscripto implements IModel {
     @Getter
     private String puesto;
 
+    @Index
     private Ref<Usuario> usuario;
     public Usuario getUsuario() { return usuario.get(); }
     public void setUsuario(Usuario usuario) {

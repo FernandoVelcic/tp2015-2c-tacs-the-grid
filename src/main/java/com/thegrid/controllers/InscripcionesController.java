@@ -24,7 +24,7 @@ public class InscripcionesController extends ApiController {
 
     public List<Inscripto> listInscripciones(HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
-        return DatastoreService.getOfy().load().type(Inscripto.class).list();
+        return DatastoreService.getOfy().load().type(Inscripto.class).filter("usuario", usuario).list();
     }
 
     public Inscripto getInscripto(@Named("id") Long id, HttpServletRequest request) throws Exception {
@@ -42,7 +42,7 @@ public class InscripcionesController extends ApiController {
     public Inscripto insertInscripto(Inscripto inscripto, HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
         inscripto.setUsuario(usuario);
-//        inscripto.notifyUser();
+//      inscripto.notifyUser();
         DatastoreService.getOfy().save().entity(inscripto).now();
         return inscripto;
     }
