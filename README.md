@@ -19,6 +19,7 @@ Partidos Manager
 
 ## URLs útiles
 - Production server: https://partidosmanager.appspot.com
+- Production administration panel: https://partidosmanager.appspot.com/app/admin/
 - Dev Server: http://localhost:8080
 - Facebook App: https://apps.facebook.com/793357694115348
 - API Explorer: http://localhost:8080/_ah/api/explorer
