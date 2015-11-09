@@ -33,6 +33,4 @@ public class Usuario implements IModel {
     }
 
     public String getPhotoUrl() { return FacebookService.getPhotoUrl(this); }
-
-    public Usuario() {}
 }

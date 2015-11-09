@@ -61,6 +61,4 @@ public class Partido implements IModel {
     public void publish() {
         FacebookService.publishPartido(this);
     }
-
-    public Partido() {}
 }
