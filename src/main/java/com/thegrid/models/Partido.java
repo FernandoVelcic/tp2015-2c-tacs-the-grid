@@ -1,5 +1,6 @@
 package com.thegrid.models;
 
+import com.google.appengine.repackaged.org.codehaus.jackson.annotate.JsonIgnore;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
@@ -47,7 +48,19 @@ public class Partido implements IModel {
         return DatastoreService.getOfy().load().type(Inscripto.class).filter("partido", this).count();
     }
 
+    @JsonIgnore
+    public List<Inscripto> getInscriptos() {
+        return DatastoreService.getOfy().load().type(Inscripto.class).filter("partido", this).list();
+    }
+
+    @JsonIgnore
+    public boolean estaCompleto() {
+        return this.getTotalInscriptos() >= this.getCant_personas();
+    }
+
     public void publish() {
         FacebookService.publishPartido(this);
     }
+
+    public Partido() {}
 }

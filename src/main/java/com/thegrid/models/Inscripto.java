@@ -33,11 +33,7 @@ public class Inscripto implements IModel {
 
         //Cuando se setee el partido actualizar puesto de inscripcion
         puesto = "Titular";
-        if (partidoCompleto()){ puesto = "Suplente"; }
-    }
-
-    public boolean partidoCompleto() {
-        return this.getPartido().getTotalInscriptos() >= this.getPartido().getCant_personas();
+        if (partido.estaCompleto()){ puesto = "Suplente"; }
     }
 
     @Override
@@ -47,4 +43,5 @@ public class Inscripto implements IModel {
 
     public void notifyUser() { FacebookService.notifyUser(this);}
 
+    public Inscripto() {}
 }
