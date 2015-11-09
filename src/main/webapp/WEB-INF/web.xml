@@ -11,8 +11,8 @@
 			<param-value>
 				com.thegrid.controllers.PartidosController,
 				com.thegrid.controllers.RecomendacionesController,
-				com.thegrid.controllers.UsuariosController,
-				com.thegrid.controllers.InscripcionesController
+				com.thegrid.controllers.InscripcionesController,
+				com.thegrid.controllers.AdminController
 			</param-value>
 		</init-param>
 	</servlet>
