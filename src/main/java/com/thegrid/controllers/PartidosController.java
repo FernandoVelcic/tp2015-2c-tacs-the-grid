@@ -5,6 +5,7 @@ import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiReference;
 import com.google.api.server.spi.config.Named;
 import com.thegrid.Constants;
+import com.thegrid.models.Inscripto;
 import com.thegrid.models.Partido;
 import com.thegrid.models.Usuario;
 import com.thegrid.services.DatastoreService;
@@ -50,5 +51,11 @@ public class PartidosController extends ApiController {
     public List<Partido> listFriendsPartidos(HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
         return DatastoreService.getOfy().load().type(Partido.class).list();
+    }
+
+    @ApiMethod(path="partido/{id}/inscripto")
+    public List<Inscripto> listPartidoInscripciones(@Named("id") Long id, HttpServletRequest request) throws Exception  {
+        Usuario usuario = AuthRequired(request);
+        return DatastoreService.getOfy().load().type(Inscripto.class).filter("partido", getPartido(id, request)).list();
     }
 }

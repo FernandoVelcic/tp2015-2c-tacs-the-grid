@@ -1,16 +1,12 @@
-app.controller('partidoController', function($scope, $location, $routeParams, Partido, Inscripto, Recomendacion, AccionesPartido) {
+app.controller('partidoController', function($scope, $location, $routeParams, Partido, PartidoInscripto, Recomendacion, AccionesPartido) {
 
     $scope.accionesPartido = AccionesPartido;
 
     Partido.get({ id: $routeParams.id }, function(data) {
         $scope.partido = data;
 
-        Inscripto.query(function(data1) {
+        PartidoInscripto.query({ id: $routeParams.id }, function(data1) {
             $scope.inscriptos = data1.items;
-
-            var inscriptoEncontrado = data1.items.find( function(inscr){ return $scope.partido.id ==  inscr.partido.id } );
-
-            $scope.partido.inscripcion = inscriptoEncontrado;
         });
     });
 
