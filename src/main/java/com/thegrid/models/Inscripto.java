@@ -41,6 +41,4 @@ public class Inscripto implements IModel {
         DatastoreService.getOfy().delete().entity(this);
     }
 
-    public void notifyUser() { FacebookService.notifyUser(this);}
-
 }

@@ -12,4 +12,5 @@ public class Constants {
   public static final String EMAIL_SCOPE = "https://www.googleapis.com/auth/userinfo.email";
 
   public static final String FACEBOOK_APP_SECRET = "4b84ed2dd0108c9f2b332747cb7304fe";
+  public static final String FACEBOOK_APP_KEY = "793357694115348";
 }

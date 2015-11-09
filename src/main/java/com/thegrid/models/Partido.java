@@ -61,4 +61,12 @@ public class Partido implements IModel {
     public void publish() {
         FacebookService.publishPartido(this);
     }
+
+    public void notifyUser() { FacebookService.notifyUser(this); }
+
+    public void notifyInscriptos() {
+        if(estaCompleto()) {
+            FacebookService.notifyInscriptos(getInscriptos());
+        }
+    }
 }

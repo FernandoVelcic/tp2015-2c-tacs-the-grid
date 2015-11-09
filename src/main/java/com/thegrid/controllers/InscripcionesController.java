@@ -42,8 +42,12 @@ public class InscripcionesController extends ApiController {
     public Inscripto insertInscripto(Inscripto inscripto, HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
         inscripto.setUsuario(usuario);
-//      inscripto.notifyUser();
+
         DatastoreService.getOfy().save().entity(inscripto).now();
+
+        inscripto.getPartido().notifyUser();
+        inscripto.getPartido().notifyInscriptos();
+
         return inscripto;
     }
 
