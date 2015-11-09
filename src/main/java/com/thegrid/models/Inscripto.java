@@ -40,22 +40,9 @@ public class Inscripto implements IModel {
         return this.getPartido().getTotalInscriptos() >= this.getPartido().getCant_personas();
     }
 
-    public Inscripto() {
-
-    }
-
-
     @Override
     public void delete() {
         DatastoreService.getOfy().delete().entity(this);
-    }
-
-    public String getPuesto() {
-        return puesto;
-    }
-
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
     }
 
     public void notifyUser() { FacebookService.notifyUser(this);}

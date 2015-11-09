@@ -26,8 +26,6 @@ public class Partido implements IModel {
     private Integer cant_personas;
     @Getter
     private String lugar;
-    @Getter
-    private Integer totalParticipantes;
 
     @Index
     private Ref<Usuario> usuario;
@@ -36,13 +34,6 @@ public class Partido implements IModel {
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = Ref.create(usuario);
-    }
-
-    public Partido() {
-        //mock
-        this.deporte = "Futbol";
-        this.cant_personas = 5;
-        this.lugar = "Corrientes 3200";
     }
 
     @Override
@@ -54,19 +45,6 @@ public class Partido implements IModel {
 
     public Integer getTotalInscriptos() {
         return DatastoreService.getOfy().load().type(Inscripto.class).filter("partido", this).count();
-    }
-
-
-    public Integer getCant_personas() {
-        return cant_personas;
-    }
-
-    public Integer getTotalParticipantes() {
-        return totalParticipantes;
-    }
-
-    public void setTotalParticipantes(Integer totalParticipantes) {
-        this.totalParticipantes = totalParticipantes;
     }
 
     public void publish() {

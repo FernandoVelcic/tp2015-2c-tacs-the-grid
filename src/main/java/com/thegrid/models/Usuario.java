@@ -23,11 +23,6 @@ public class Usuario implements IModel {
     @Setter
     private String token;
 
-    public Usuario() {
-        //mock
-        facebook_id = "5";
-    }
-
     @Override
     public void delete() {
         DatastoreService.getOfy().delete().entity(this);

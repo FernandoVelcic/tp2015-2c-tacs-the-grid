@@ -32,10 +32,6 @@ public class Recomendacion implements IModel {
     public Partido getPartido() { return partido.get(); }
     public void setPartido(Partido partido) { this.partido = Ref.create(partido); }
 
-    public Recomendacion() {
-
-    }
-
     @Override
     public void delete() {
         DatastoreService.getOfy().delete().entity(this);
