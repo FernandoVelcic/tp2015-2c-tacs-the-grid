@@ -36,4 +36,6 @@ public class Usuario implements IModel {
     public String getName() {
         return FacebookService.getName(this);
     }
+
+    public String getPhotoUrl() { return FacebookService.getPhotoUrl(this); }
 }

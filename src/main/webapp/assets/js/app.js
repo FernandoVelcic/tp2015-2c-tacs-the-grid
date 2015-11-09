@@ -93,18 +93,6 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: 'views/friends/partidos.html',
             controller: 'friendsPartidosController'
         })
-        .when('/app/admin/partidos', {
-            templateUrl: 'views/admin/partidos.html',
-            controller: 'adminPartidosController'
-        })
-        .when('/app/admin/usuarios', {
-            templateUrl: 'views/admin/usuarios.html',
-            controller: 'adminUsuariosController'
-        })
-        .when('/app/admin/inscripciones', {
-            templateUrl: 'views/admin/inscripciones.html',
-            controller: 'adminInscripcionesController'
-        })
         .when('/error', {
             templateUrl: 'views/error.html',
             controller: 'emptyController'
@@ -168,7 +156,7 @@ app.factory("Recomendacion", ['$resource', function($resource) {
 }]);
 
 app.factory("AdminPartidos", ['$resource', function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/admin/partidos/:id", null,
+    return $resource("/_ah/api/partidosmanager/v1/admin/partido/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });
@@ -182,7 +170,7 @@ app.factory("AdminUsuarios", ['$resource', function($resource) {
 }]);
 
 app.factory("AdminInscripciones", ['$resource', function($resource) {
-    return $resource("/_ah/api/partidosmanager/v1/admin/inscripciones/:id", null,
+    return $resource("/_ah/api/partidosmanager/v1/admin/inscripto/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });

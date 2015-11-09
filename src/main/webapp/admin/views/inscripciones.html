@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Partidos en los que me anote</a>
+            <a class="navbar-brand" href="/">Administrando inscripciones</a>
         </div>
 
         <div id="navbar" class="navbar-collapse">
@@ -14,6 +14,7 @@
 <table class="table table-striped" class="genericTable">
     <thead>
     <tr>
+        <th style="text-align: center;"></th>
         <th style="text-align: center;">Deporte</th>
         <th style="text-align: center;">Cantidad Personas</th>
         <th style="text-align: center;">Lugar</th>
@@ -22,6 +23,7 @@
     </thead>
     <tbody>
     <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
+        <td><img class="logo-user img-rounded"  src={{inscripto.usuario.photoUrl}}></td>
         <td>{{ inscripto.partido.deporte }}</td>
         <td>{{ inscripto.partido.totalInscriptos }} de {{ inscripto.partido.cant_personas }}</td>
         <td>{{ inscripto.partido.lugar}}</td>

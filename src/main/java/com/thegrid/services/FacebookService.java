@@ -1,10 +1,7 @@
 package com.thegrid.services;
 
 
-import com.restfb.DefaultFacebookClient;
-import com.restfb.FacebookClient;
-import com.restfb.Parameter;
-import com.restfb.Version;
+import com.restfb.*;
 import com.restfb.types.FacebookType;
 import com.restfb.types.User;
 import com.thegrid.Constants;
@@ -53,5 +50,19 @@ public class FacebookService {
         facebookClient.publish(inscripto.getPartido().getUsuario().getFacebook_id()+"/notifications", FacebookType.class,
                 Parameter.with("template", notify_message));
 
+    }
+
+    public static String getPhotoUrl(Usuario usuario) {
+        if(usuario.getToken() == null)
+            return "Unknown";
+
+        try {
+        FacebookClient facebookClient = getFacebookClient(usuario.getToken());
+        User user = facebookClient.fetchObject(usuario.getFacebook_id(), User.class, Parameter.with("fields", "picture"));
+        return user.getPicture().getUrl();
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Excepcion!!!";
+        }
     }
 }
