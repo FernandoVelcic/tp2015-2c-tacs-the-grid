@@ -1,12 +1,5 @@
 app.controller('nuevoPartidoController', function($scope, $http, $location, Partido, AccionesPartido) {
 
-    $scope.partidos = [];
-
-    Partido.query(function(data) {
-        console.log(JSON.stringify(data.items));
-        $scope.partidos = data.items;
-    });
-
     var switchState = true;
     $("[name='switchcheckbox']").bootstrapSwitch();
     $('input[name="switchcheckbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
@@ -14,17 +7,21 @@ app.controller('nuevoPartidoController', function($scope, $http, $location, Part
     });
 
     $scope.onAgregar = function(){
-        Partido.save({
-                'deporte': $scope.deporte,
-                'cant_personas': $scope.cantPersonas,
-                'lugar': $scope.address
-            },
-            function(response){
-                console.log(JSON.stringify(response));
-                $scope.partidos.push(response);
-                if(switchState) AccionesPartido.anotarme(response);
-                $location.path("app/partidos");
-            });
+        if($scope.deporte && $scope.cantPersonas && $scope.address){
+            Partido.save({
+                    'deporte': $scope.deporte,
+                    'cant_personas': $scope.cantPersonas,
+                    'lugar': $scope.address,
+                },
+                function(response){
+                    if(switchState) {
+                        AccionesPartido.anotarme(response,function(response){
+                            $location.path("app/partidos");
+                        });
+                    }
+                    console.log(JSON.stringify(response));
+                });
+        } else alert("Por favor, no sea imbecil y complete todos los campos!");
     };
 
     $scope.onCancelar = function () {
