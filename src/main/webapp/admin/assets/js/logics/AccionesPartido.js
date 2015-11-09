@@ -13,17 +13,6 @@ app.factory('AccionesPartido', function (Inscripto) {
             });
 
         },
-        anotarme: function(partido, lambda){
-            var inscripto = {
-                'partido': {
-                    'id': partido.id
-                }
-
-            };
-
-            Inscripto.save(inscripto, lambda);
-
-        },
         desanotarme: function(partido){
             Inscripto.delete({ id: partido.inscripcion.id}, function (response) {
                 partido.inscripcion = undefined;
