@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="../assets/css/main.css"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/animations.css"/>
 </head>
-<body ng-controller="homeController">
+<body ng-controller="mainController">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -22,24 +22,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Partidos Manager Administrator</a>
+                <a class="navbar-brand" href="/app/admin/">Partidos Manager Administrator</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/app/admin/">Inicio</a></li>
-                    <li class="dropdown">
-					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">ABM<b class="caret"></b></a>
-					    <ul class="dropdown-menu">
-                            <li><a href="/app/admin/partidos">Partidos</a></li>
-                            <li><a href="/app/admin/inscripciones">Inscripciones</a></li>
-                            <li><a href="/app/admin/usuarios">Usuarios</a></li>
-                        </ul>
-					</li>
-                    <li><a href="/">Partidos Manager</a></li>
+                    <li><a href="/app/admin/partidos">Partidos</a></li>
+                    <li><a href="/app/admin/inscripciones">Inscripciones</a></li>
+                    <li><a href="/app/admin/usuarios">Usuarios</a></li>
+                    <li><a href="/app/admin/recomendaciones">Recomendaciones</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-
+                    <li><a href="/">Ir a Partidos Manager</a></li>
                 </ul>
             </div>
         </div>
@@ -66,6 +61,7 @@
     <script src="../assets/js/polyfills/array_find.js"></script>
     <!--Scripts-->
     <script src="admin/assets/js/adminapp.js"></script>
+    <script src="admin/assets/js/controllers/mainController.js"></script>
     <script src="admin/assets/js/controllers/homeController.js"></script>
     <script src="admin/assets/js/controllers/adminInscripcionesController.js"></script>
     <script src="admin/assets/js/controllers/adminPartidosController.js"></script>
