@@ -58,6 +58,11 @@ public class Partido implements IModel {
         return this.getTotalInscriptos() >= this.getCant_personas();
     }
 
+    @JsonIgnore
+    public boolean estaEstrictamenteCompleto() {
+        return this.getTotalInscriptos() == this.getCant_personas();
+    }
+
     public void publish() {
         FacebookService.publishPartido(this);
     }
@@ -65,7 +70,7 @@ public class Partido implements IModel {
     public void notifyUser() { FacebookService.notifyUser(this); }
 
     public void notifyInscriptos() {
-        if(estaCompleto()) {
+        if(estaEstrictamenteCompleto()) {
             FacebookService.notifyInscriptos(getInscriptos());
         }
     }
