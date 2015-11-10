@@ -4,19 +4,8 @@ app.controller('misPartidosController', function($scope,$location, Partido, Insc
 
     $scope.accionesPartido = AccionesPartido;
     Partido.query(function(data) {
-        //$scope.partidos = data.items.map(function(partido){
-        //    if(!partido)
-        //        partido.inscripcion = undefined;
-        //    return partido;
-        //});
         $scope.partidos = data.items;
-        //console.log($rootScope.user != undefined && $rootScope.user.id);
         Inscripto.query(function(data) {
-            //var inscripciones = data.items.filter(function(inscripcion){
-            //    var returned;
-            //    //if(inscripcion.usuario.id == $RootScope.user.id) returned = inscripcion;
-            //    return returned;
-            //});
             data.items.forEach(function(inscripto){
                 var partido = $scope.partidos.find(function(p){ return p.id ==  inscripto.partido.id});
                 if(partido)
@@ -44,5 +33,9 @@ app.controller('misPartidosController', function($scope,$location, Partido, Insc
             }
         };
         Recomendacion.save(recomendacion, function() {})
+    }
+    $scope.onAnotarme = function(partido){
+        partido.totalInscriptos++;
+        AccionesPartido.anotarme(partido, undefined);
     }
 });
