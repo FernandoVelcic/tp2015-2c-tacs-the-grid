@@ -43,7 +43,7 @@ public class PartidosController extends ApiController {
         Usuario usuario = AuthRequired(request);
         partido.setUsuario(usuario);
         DatastoreService.getOfy().save().entity(partido).now();
-        //partido.publish();
+        partido.publish();
         return partido;
     }
 
