@@ -10,7 +10,6 @@ import com.thegrid.models.Recomendacion;
 import com.thegrid.models.Usuario;
 import com.thegrid.services.DatastoreService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Api(
@@ -32,7 +31,7 @@ public class AdminController {
         return DatastoreService.getOfy().load().type(Partido.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete", path="admin/partido")
+    @ApiMethod(httpMethod = "delete", path="admin/partidos/{id}")
     public void deletePartidoAdmin(@Named("id") Long id) {
         getPartidoAdmin(id).delete();
     }
