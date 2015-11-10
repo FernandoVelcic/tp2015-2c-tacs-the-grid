@@ -29,6 +29,7 @@
         <th style="text-align: center;">Cantidad Personas</th>
         <th style="text-align: center;">Lugar</th>
         <th style="text-align: center;">De</th>
+        <th style="text-align: center;">Administrar</th>
     </tr>
     </thead>
     <tbody>
@@ -39,7 +40,7 @@
         <td>{{ inscripto.partido.lugar}}</td>
         <td>{{ inscripto.partido.usuario.name }}</td>
         <td>
-            <button class="btn btn-danger" ng-click="eliminar()">
+            <button class="btn btn-danger" ng-click="eliminar(inscripto)">
                 <span class="glyphicons"></span>Eliminar
             </button>
             <button class="btn btn-info" ng-click="info(inscripto)">

@@ -47,7 +47,7 @@ public class AdminController {
         return DatastoreService.getOfy().load().type(Usuario.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete", path="admin/usuario")
+    @ApiMethod(httpMethod = "delete", path="admin/usuario/{id}")
     public void deleteUsuarioAdmin(@Named("id") Long id) {
         getUsuarioAdmin(id).delete();
     }
@@ -79,7 +79,7 @@ public class AdminController {
         return DatastoreService.getOfy().load().type(Inscripto.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete", path="admin/inscripto")
+    @ApiMethod(httpMethod = "delete", path="admin/inscripto/{id}")
     public void deleteInscriptoAdmin(@Named("id") Long id) {
         getInscriptoAdmin(id).delete();
     }
