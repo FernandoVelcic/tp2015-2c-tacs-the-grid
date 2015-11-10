@@ -5,10 +5,10 @@ adminapp.controller('adminUsuariosController', function($scope, AdminUsuarios) {
     });
 
     $scope.eliminar = function(usuario) {
-        AdminUsuarios.delete({ id: usuarios.id}, function(response) {
+        AdminUsuarios.delete({ id: usuario.id}, function(response) {
             $scope.deseleccionar();
-            $scope.inscriptos.splice($scope.usuarios.indexOf(usuarios), 1);
-            console.log("Inscripcion eliminada! ID: " + usuarios.id);
+            $scope.usuarios.splice($scope.usuarios.indexOf(usuario), 1);
+            console.log("Usuario eliminado! ID: " + usuario.id);
         });
     };
 
