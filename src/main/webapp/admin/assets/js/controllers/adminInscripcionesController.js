@@ -7,6 +7,7 @@ adminapp.controller('adminInscripcionesController', function($scope, AdminInscri
 
     $scope.eliminar = function(inscripcion) {
         AdminInscripciones.delete({ id: inscripcion.id}, function(response) {
+            $scope.deseleccionar();
             $scope.inscriptos.splice($scope.inscriptos.indexOf(inscripcion), 1);
             console.log("Inscripcion eliminada! ID: " + inscripcion.id);
         });
