@@ -1,4 +1,4 @@
-app.controller('partidoController', function($scope, $location, $routeParams, Partido, PartidoInscripto, Recomendacion, AccionesPartido) {
+app.controller('partidoController', function($rootScope, $scope, $location, $routeParams, Partido, PartidoInscripto, Recomendacion, AccionesPartido) {
 
     $scope.accionesPartido = AccionesPartido;
 
@@ -8,6 +8,7 @@ app.controller('partidoController', function($scope, $location, $routeParams, Pa
         PartidoInscripto.query({ id: $routeParams.id }, function(data1) {
             $scope.inscriptos = data1.items;
         });
+
     });
 
     $scope.onEliminar = function(partido){

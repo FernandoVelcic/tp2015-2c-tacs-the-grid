@@ -18,10 +18,10 @@ app.controller('nuevoPartidoController', function($scope, $http, $location, Part
                         AccionesPartido.anotarme(response,function(response){
                             $location.path("app/partidos");
                         });
-                    }
-                    console.log(JSON.stringify(response));
+                    }else $location.path("app/partidos");
+                    //console.log(JSON.stringify(response));
                 });
-        } else alert("Por favor, no sea imbecil y complete todos los campos!");
+        } else alert("Por favor, complete todos los campos");
     };
 
     $scope.onCancelar = function () {
