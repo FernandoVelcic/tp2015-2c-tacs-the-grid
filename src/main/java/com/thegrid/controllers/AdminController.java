@@ -31,7 +31,7 @@ public class AdminController {
         return DatastoreService.getOfy().load().type(Partido.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete", path="admin/partidos/{id}")
+    @ApiMethod(httpMethod = "delete", path="admin/partido/{id}")
     public void deletePartidoAdmin(@Named("id") Long id) {
         getPartidoAdmin(id).delete();
     }
