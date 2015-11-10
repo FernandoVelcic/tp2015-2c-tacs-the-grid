@@ -80,7 +80,7 @@ public class AdminController {
         return DatastoreService.getOfy().load().type(Inscripto.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete", path="admin/inscripto")
+    @ApiMethod(httpMethod = "delete", path="admin/inscripto/{id}")
     public void deleteInscriptoAdmin(@Named("id") Long id) {
         getInscriptoAdmin(id).delete();
     }
