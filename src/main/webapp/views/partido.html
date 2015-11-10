@@ -32,8 +32,8 @@
                     <button ng-show="partido.inscripcion" class="btn btn-danger" ng-click="accionesPartido.desanotarme(partido)">
                         <span class="glyphicons"></span>Desanotarme
                     </button>
-                    <button ng-show="!partido.inscripcion" class="btn btn-success" ng-click="accionesPartido.anotarme(partido)">
-                        <span class="glyphicons"></span>¡Quiero participar!
+                    <button ng-show="!partido.inscripcion" class="btn btn-success" ng-click="accionesPartido.anotarme(partido, undefined)">
+                        <span class="glyphicons"></span>Anotarme
                     </button>
                 </td>
             </ul>
