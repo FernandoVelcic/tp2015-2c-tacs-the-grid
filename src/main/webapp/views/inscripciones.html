@@ -27,6 +27,9 @@
         <td>{{ inscripto.partido.lugar}}</td>
         <td>{{ inscripto.partido.usuario.name }}</td>
         <td>
+            <button class="btn btn-info" ng-click="accionesPartido.info(inscripto.partido)">
+                <span class="glyphicons"></span>Info
+            </button>
             <button class="btn btn-danger" ng-click="desanotarme(inscripto)">
                 <span class="glyphicons"></span>Desanotarme
             </button>

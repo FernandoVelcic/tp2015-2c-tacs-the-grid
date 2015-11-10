@@ -1,4 +1,5 @@
-app.controller('inscripcionesController', function($scope, $http, $location, Inscripto) {
+app.controller('inscripcionesController', function($scope, $http, $location, Inscripto, AccionesPartido) {
+    $scope.accionesPartido = AccionesPartido;
     $scope.inscriptos = [];
 
     Inscripto.query(function(data) {

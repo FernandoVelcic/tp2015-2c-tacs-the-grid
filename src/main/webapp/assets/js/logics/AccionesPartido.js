@@ -1,4 +1,4 @@
-app.factory('AccionesPartido', function (Inscripto) {
+app.factory('AccionesPartido', function (Inscripto, $location) {
     return {
         anotarme: function(partido, lambda){
             var inscripto = {
@@ -14,6 +14,9 @@ app.factory('AccionesPartido', function (Inscripto) {
             Inscripto.delete({ id: partido.inscripcion.id}, function (response) {
                 partido.inscripcion = undefined;
             });
+        },
+        info: function(partido){
+            $location.path("app/partidos/"+partido.id);
         }
     };
 });
