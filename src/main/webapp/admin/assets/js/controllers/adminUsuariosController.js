@@ -4,8 +4,12 @@ adminapp.controller('adminUsuariosController', function($scope, AdminUsuarios) {
         $scope.usuarios.forEach(function(p) {console.log(p)});
     });
 
-    $scope.eliminar = function() {
-        console.log("asd");
+    $scope.eliminar = function(usuario) {
+        AdminUsuarios.delete({ id: usuarios.id}, function(response) {
+            $scope.deseleccionar();
+            $scope.inscriptos.splice($scope.usuarios.indexOf(usuarios), 1);
+            console.log("Inscripcion eliminada! ID: " + usuarios.id);
+        });
     };
 
     $scope.info = function (usuario) {

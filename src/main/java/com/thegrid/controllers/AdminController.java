@@ -48,7 +48,7 @@ public class AdminController {
         return DatastoreService.getOfy().load().type(Usuario.class).id(id).now();
     }
 
-    @ApiMethod(httpMethod = "delete", path="admin/usuario")
+    @ApiMethod(httpMethod = "delete", path="admin/usuario/{id}")
     public void deleteUsuarioAdmin(@Named("id") Long id) {
         getUsuarioAdmin(id).delete();
     }
