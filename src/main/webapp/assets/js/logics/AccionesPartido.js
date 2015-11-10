@@ -1,6 +1,5 @@
 app.factory('AccionesPartido', function (Inscripto) {
     return {
-
         anotarme: function(partido, lambda){
             var inscripto = {
                 'partido': {
@@ -11,7 +10,6 @@ app.factory('AccionesPartido', function (Inscripto) {
                 partido.inscripcion = response;
                 if (lambda != undefined) lambda()});
         },
-
         desanotarme: function(partido){
             Inscripto.delete({ id: partido.inscripcion.id}, function (response) {
                 partido.inscripcion = undefined;
