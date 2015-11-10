@@ -9,6 +9,10 @@ adminapp.run(['$rootScope', '$window', '$location',
 adminapp.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
+        .when('/', {
+            templateUrl: 'admin/views/home.html',
+            controller: 'homeController'
+        })
         .when('/app/admin/', {
             templateUrl: 'admin/views/home.html',
             controller: 'homeController'

@@ -1,3 +1,7 @@
-adminapp.controller('homeController', function($scope, $rootScope, $http) {
-
+adminapp.controller('homeController', function($scope, $location, $route) {
+    $scope.goHome = function() {
+        alert("asdasd");
+        $location.path("/");
+        $route.reload();
+    };
 });

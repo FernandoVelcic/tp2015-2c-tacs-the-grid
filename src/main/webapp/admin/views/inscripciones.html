@@ -11,6 +11,16 @@
     </div>
 </nav>
 
+<div class="container partidoDiv" ng-show="inscriptoSeleccionado">
+    <p><b>ID:</b> {{ inscriptoSeleccionado.id }}</p>
+    <p><b>PartidoID:</b> {{ inscriptoSeleccionado.partido.id }}</p>
+    <p><b>UsuarioID:</b> {{ inscriptoSeleccionado.usuario.id }}</p>
+    <p><b>Puesto:</b> {{ inscriptoSeleccionado.puesto }}</p>
+    <p><button class="btn btn-success" ng-click="deseleccionar()">
+        <span class="glyphicons"></span>Cerrar
+    </button></p>
+</div>
+
 <table class="table table-striped" class="genericTable">
     <thead>
     <tr>
@@ -29,8 +39,11 @@
         <td>{{ inscripto.partido.lugar}}</td>
         <td>{{ inscripto.partido.usuario.name }}</td>
         <td>
-            <button class="btn btn-danger" ng-click="desanotarme(inscripto)">
-                <span class="glyphicons"></span>Desanotarme
+            <button class="btn btn-danger" ng-click="eliminar()">
+                <span class="glyphicons"></span>Eliminar
+            </button>
+            <button class="btn btn-info" ng-click="info(inscripto)">
+                <span class="glyphicons"></span>Informacion
             </button>
         </td>
     </tr>

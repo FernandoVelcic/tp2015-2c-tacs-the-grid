@@ -15,7 +15,7 @@ app.controller('nuevoPartidoController', function($scope, $http, $location, Part
                 },
                 function(response){
                     if(switchState) {
-                        AccionesPartido.anotarme(response,function(response){
+                        AccionesPartido.anotarme(response,function(){
                             $location.path("app/partidos");
                         });
                     }

@@ -1,3 +1,3 @@
-app.controller('emptyController', function() {
+adminapp.controller('emptyController', function() {
 
 });
