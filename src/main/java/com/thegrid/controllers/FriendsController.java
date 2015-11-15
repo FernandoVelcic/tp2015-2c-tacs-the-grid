@@ -28,31 +28,4 @@ public class FriendsController extends ApiController {
         Usuario usuario = AuthRequired(request);
         return FacebookService.getFriends(usuario);
     }
-
-
-/*
-    public Usuario getFriend(@Named("id") Long id, HttpServletRequest request) throws Exception {
-        Usuario usuario = AuthRequired(request);
-        return DatastoreService.getOfy().load().type(Usuario.class).id(id).now();
-    }
-
-    @ApiMethod(httpMethod = "delete")
-    public void deleteInscripto(@Named("id") Long id, HttpServletRequest request) throws Exception {
-        Usuario usuario = AuthRequired(request);
-        getInscripto(id, request).delete();
-    }
-
-    @ApiMethod(httpMethod = "post")
-    public Inscripto insertInscripto(Inscripto inscripto, HttpServletRequest request) throws Exception {
-        Usuario usuario = AuthRequired(request);
-        inscripto.setUsuario(usuario);
-
-        DatastoreService.getOfy().save().entity(inscripto).now();
-
-        inscripto.getPartido().notifyUser();
-        inscripto.getPartido().notifyInscriptos();
-
-        return inscripto;
-    }
-*/
 }

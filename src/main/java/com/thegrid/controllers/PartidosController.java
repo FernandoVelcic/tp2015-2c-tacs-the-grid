@@ -4,13 +4,16 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiReference;
 import com.google.api.server.spi.config.Named;
+import com.restfb.Facebook;
 import com.thegrid.Constants;
 import com.thegrid.models.Inscripto;
 import com.thegrid.models.Partido;
 import com.thegrid.models.Usuario;
 import com.thegrid.services.DatastoreService;
+import com.thegrid.services.FacebookService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(
@@ -50,7 +53,17 @@ public class PartidosController extends ApiController {
     @ApiMethod(path="friends/partido")
     public List<Partido> listFriendsPartidos(HttpServletRequest request) throws Exception {
         Usuario usuario = AuthRequired(request);
-        return DatastoreService.getOfy().load().type(Partido.class).list();
+
+        List<Usuario> listFriends = FacebookService.getFriends(usuario);
+        List<Partido> listPartido = new ArrayList<Partido>();
+
+        for(Usuario friend: listFriends){
+            List<Partido> listFriendPartido = DatastoreService.getOfy().load().type(Partido.class).filter("usuario", friend).list();
+            if(!listFriendPartido.isEmpty())
+                listPartido.addAll(listFriendPartido);
+        }
+
+        return listPartido;
     }
 
     @ApiMethod(path="partido/{id}/inscripto")
