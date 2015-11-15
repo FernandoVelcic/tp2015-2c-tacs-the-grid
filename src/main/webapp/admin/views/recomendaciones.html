@@ -12,27 +12,44 @@
     </div>
 </nav>
 
+<div class="container partidoDiv" ng-show="recomendacionSeleccionada">
+
+    <table class="table"><tr>
+        <td>
+            <img class="logo-user img-rounded" src={{recomendacionSeleccionada.usuario.photoUrl}}>
+            <p>{{ recomendacionSeleccionada.usuario.name }}</p>
+        </td>
+        <td>
+            <p><b>RecomendacionID:</b> {{ recomendacionSeleccionada.id }}</p>
+            <p><b>UsuarioID:</b> {{ recomendacionSeleccionada.usuario.id }}</p>
+            <p><b>Deporte:</b> {{ recomendacionSeleccionada.partido.deporte }}</p>
+            <p><b>Lugar:</b> {{ recomendacionSeleccionada.partido.lugar }}</p>
+            <p><b>Total inscriptos:</b> {{ recomendacionSeleccionada.partido.totalInscriptos }} de {{ recomendacionSeleccionada.partido.cant_personas }}</p>
+        </td>
+    </tr>
+    </table>
+
+    <p><button class="btn btn-success" ng-click="deseleccionar()">
+        <span class="glyphicons"></span>Cerrar
+    </button></p>
+</div>
+
 <table class="table table-striped" class="genericTable">
     <thead>
     <tr>
-        <th style="text-align: center;">Deporte</th>
-        <th style="text-align: center;">Cantidad Personas</th>
-        <th style="text-align: center;">Lugar</th>
-        <th style="text-align: center;">De</th>
+        <th style="text-align: center;">ID</th>
+        <th style="text-align: center;">Acciones</th>
     </tr>
     </thead>
     <tbody>
     <tr style="text-align: center;" ng-repeat="recomendacion in recomendaciones">
-        <td>{{ recomendacion.partido.deporte }}</td>
-        <td>{{ recomendacion.partido.totalInscriptos }} de {{ recomendacion.partido.cant_personas }}</td>
-        <td>{{ recomendacion.partido.lugar}}</td>
-        <td>{{ recomendacion.usuario.name }}</td>
+        <td>{{ recomendacion.id }}</td>
         <td>
-            <button class="btn btn-success" ng-click="aceptar(recomendacion)">
-                <span class="glyphicons"></span>¡Quiero participar!
+            <button class="btn btn-info" ng-click="seleccionar(recomendacion)">
+                <span class="glyphicons"></span>Info
             </button>
-            <button class="btn btn-danger" ng-click="rechazar(recomendacion)">
-                <span class="glyphicons"></span>Rechazar
+            <button class="btn btn-danger" ng-click="eliminar(recomendacion)">
+                <span class="glyphicons"></span>Eliminar
             </button>
         </td>
     </tr>

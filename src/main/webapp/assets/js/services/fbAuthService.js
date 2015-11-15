@@ -14,7 +14,7 @@ app.service('fbAuth',['$rootScope', '$http', '$timeout', '$location',  function(
         var _self = this;
         FB.api('/me',
             {
-                fields: 'first_name,last_name,name,picture,friends'
+                fields: 'id,first_name,last_name,name,picture,friends'
             },
             function(res) {
                 $timeout(function() {

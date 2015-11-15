@@ -25,9 +25,21 @@ adminapp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'admin/views/usuarios.html',
             controller: 'adminUsuariosController'
         })
+        .when('/app/admin/usuarios/create', {
+            templateUrl: 'admin/views/usuariosForm.html',
+            controller: 'adminUsuariosCreateController'
+        })
+        .when('/app/admin/usuarios/edit/:id', {
+            templateUrl: 'admin/views/usuariosForm.html',
+            controller: 'adminUsuariosEditController'
+        })
         .when('/app/admin/inscripciones', {
             templateUrl: 'admin/views/inscripciones.html',
             controller: 'adminInscripcionesController'
+        })
+        .when('/app/admin/recomendaciones', {
+            templateUrl: 'admin/views/recomendaciones.html',
+            controller: 'adminRecomendacionesController'
         })
         .when('/error', {
             templateUrl: 'views/error.html',
@@ -58,3 +70,27 @@ adminapp.factory("AdminInscripciones", ['$resource', function($resource) {
             'query': { method:'GET', isArray: false }
         });
 }]);
+
+adminapp.factory("AdminRecomendaciones", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/admin/recomendacion/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+}]);
+
+adminapp.directive('checkImage', function($http) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            attrs.$observe('ngSrc', function(ngSrc) {
+                if (ngSrc == 'Unknown') {
+                    $http.get('admin/assets/img/icon-grey-person.png').success(function(){
+                        element.attr('src', 'admin/assets/img/icon-grey-person.png'); // set default image
+                    });
+                } else {
+                    element.attr('src', ngSrc);
+                }
+            });
+        }
+    };
+});
