@@ -9,6 +9,7 @@ import com.thegrid.models.Partido;
 import com.thegrid.models.Usuario;
 import com.thegrid.models.Inscripto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FacebookService {
@@ -69,5 +70,19 @@ public class FacebookService {
         FacebookClient facebookClient = getFacebookClient(usuario.getToken());
         User user = facebookClient.fetchObject(usuario.getFacebook_id(), User.class, Parameter.with("fields", "picture"));
         return user.getPicture().getUrl();
+    }
+
+    public static List<Usuario> getFriends(Usuario usuario){
+
+        FacebookClient facebookClient = getFacebookClient(usuario.getToken());
+        Connection<User> myFriends = facebookClient.fetchConnection("me/friends", User.class);
+        List<Usuario> usuarioList = new ArrayList<Usuario>();
+
+        for(User friend: myFriends.getData()){
+            Usuario friendUsuario = DatastoreService.getOfy().load().type(Usuario.class).filter("facebook_id", friend.getId()).first().now();
+            if(friendUsuario != null)
+                usuarioList.add(friendUsuario);
+        }
+        return usuarioList;
     }
 }

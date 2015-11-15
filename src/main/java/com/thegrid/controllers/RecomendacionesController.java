@@ -4,6 +4,7 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.Named;
 import com.thegrid.Constants;
+import com.thegrid.models.Partido;
 import com.thegrid.models.Recomendacion;
 import com.thegrid.models.Usuario;
 import com.thegrid.services.DatastoreService;
@@ -39,9 +40,9 @@ public class RecomendacionesController extends ApiController {
 
     @ApiMethod(httpMethod = "post")
     public Recomendacion insertRecomendacion(Recomendacion recomendacion, HttpServletRequest request) throws Exception {
-        Usuario usuario = AuthRequired(request);
-        recomendacion.setUsuario(usuario);
-        recomendacion.setFrom_usuario(usuario);
+        Usuario from_usuario = AuthRequired(request);
+
+        recomendacion.setFrom_usuario(from_usuario);
         DatastoreService.getOfy().save().entity(recomendacion).now();
         return recomendacion;
     }

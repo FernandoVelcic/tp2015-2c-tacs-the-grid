@@ -17,7 +17,6 @@ app.service('fbAuth',['$rootScope', '$http', '$timeout', '$location',  function(
                 fields: 'first_name,last_name,name,picture,friends'
             },
             function(res) {
-                console.log(res);
                 $timeout(function() {
                     $rootScope.loggedUser = true;
                     $rootScope.user = _self.user = res

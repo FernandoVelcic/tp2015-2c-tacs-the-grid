@@ -8,6 +8,8 @@ import com.thegrid.services.FacebookService;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 public class Usuario implements IModel {
     @Getter
@@ -23,14 +25,16 @@ public class Usuario implements IModel {
     @Setter
     private String token;
 
+    @Getter
+    @Setter
+    private String name;
+
+    @Getter
+    @Setter
+    private String photoUrl;
+
     @Override
     public void delete() {
         DatastoreService.getOfy().delete().entity(this);
     }
-
-    public String getName() {
-        return FacebookService.getName(this);
-    }
-
-    public String getPhotoUrl() { return FacebookService.getPhotoUrl(this); }
 }

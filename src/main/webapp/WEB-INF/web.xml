@@ -12,7 +12,8 @@
 				com.thegrid.controllers.PartidosController,
 				com.thegrid.controllers.RecomendacionesController,
 				com.thegrid.controllers.InscripcionesController,
-				com.thegrid.controllers.AdminController
+				com.thegrid.controllers.AdminController,
+				com.thegrid.controllers.FriendsController
 			</param-value>
 		</init-param>
 	</servlet>

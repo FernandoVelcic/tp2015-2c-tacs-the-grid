@@ -30,6 +30,10 @@ public class ApiController {
         }
 
         usuario.setToken(token);
+
+        usuario.setName(FacebookService.getName(usuario));
+        usuario.setPhotoUrl(FacebookService.getPhotoUrl(usuario));
+
         DatastoreService.getOfy().save().entity(usuario).now();
         return usuario;
     }

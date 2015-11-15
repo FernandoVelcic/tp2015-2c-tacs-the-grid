@@ -21,23 +21,25 @@ app.run(['$rootScope', '$window', '$location', 'fbAuth',
             //Watch route changes
             $rootScope.$on( "$routeChangeStart", function(event, next, current) {
 
-                if($rootScope.nextRoute.templateUrl != next.templateUrl &&
-                    next.templateUrl != 'views/home.html' && !$rootScope.loggedUser){
+                if(next!= undefined){
+                    if($rootScope.nextRoute.templateUrl != next.templateUrl &&
+                        next.templateUrl != 'views/home.html' && !$rootScope.loggedUser){
 
-                    event.preventDefault();
-                    $rootScope.nextRoute = next;
+                        event.preventDefault();
+                        $rootScope.nextRoute = next;
 
-                    FB.login(function(response){
-                        if (response.authResponse) {
-                            $location.path(next.originalPath);
-                        }
-                        else{
-                            alert("No te logeaste correctamente!")
-                        }
-                    }, {
-                        scope: 'user_friends, publish_actions, publish_pages'
-                    });
+                        FB.login(function(response){
+                            if (response.authResponse) {
+                                $location.path(next.originalPath);
+                            }
+                            else{
+                                alert("No te logeaste correctamente!")
+                            }
+                        }, {
+                            scope: 'user_friends, publish_actions, publish_pages'
+                        });
 
+                    }
                 }
             });
         };
@@ -68,6 +70,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/app', {
             templateUrl: 'views/home.html',
             controller: 'mainController'
+        })
+        .when('/app/recomendar', {
+            templateUrl: 'views/recomendar.html',
+            controller: 'recomendarController'
         })
         .when('/app/recomendaciones', {
             templateUrl: 'views/recomendaciones.html',
@@ -114,8 +120,6 @@ app.factory('myHttpInterceptor', ['$q', '$rootScope',
                 //alert(xAT);
                 //console.log(xAT);
                 if (!xAT) {
-                    //alert("Levantando header de localStorage....");
-                    console.log("Levantando header de localStorage....");
                     config.headers["x-access-token"] = window.localStorage['accessToken'];
                     $rootScope.cargandoHttp=false;
                 }
@@ -150,6 +154,14 @@ app.factory("PartidoInscripto", ['$resource', function($resource) {
 
 app.factory("FriendPartido", ['$resource', function($resource) {
     return $resource("/_ah/api/partidosmanager/v1/friends/partido/:id", null,
+        {
+            'query': { method:'GET', isArray: false }
+        });
+
+}]);
+
+app.factory("Friends", ['$resource', function($resource) {
+    return $resource("/_ah/api/partidosmanager/v1/friends/:id", null,
         {
             'query': { method:'GET', isArray: false }
         });

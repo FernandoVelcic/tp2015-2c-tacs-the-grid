@@ -38,8 +38,15 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></a>
+                    <li class="">
+                        <button ng-show="!loggedUser" class="btn btn-primary" ng-click="login()">
+                            <span class="glyphicons"></span>Login
+                        </button>
+                    </li>
+                    <li class="">
+                        <button ng-show="loggedUser" class="btn btn-primary" ng-click="logout()">
+                            <span class="glyphicons"></span>Log out
+                        </button>
                     </li>
                     <li class="dropdown" ng-include="authTemplate.url"></li>
                 </ul>
@@ -71,6 +78,7 @@
     <script src="assets/js/app.js"></script>
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/controllers/mainController.js"></script>
+    <script src="assets/js/controllers/recomendarController.js"></script>
     <script src="assets/js/controllers/recomendacionesController.js"></script>
     <script src="assets/js/controllers/friendsPartidosController.js"></script>
     <script src="assets/js/controllers/misPartidosController.js"></script>
@@ -80,5 +88,6 @@
     <script src="assets/js/controllers/partidoController.js"></script>
     <script src="assets/js/logics/AccionesPartido.js"></script>
     <script src="assets/js/services/fbAuthService.js"></script>
+    <script src="assets/js/services/partidosService.js"></script>
 </body>
 </html>

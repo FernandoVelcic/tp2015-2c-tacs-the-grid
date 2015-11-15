@@ -1,4 +1,4 @@
-app.factory('AccionesPartido', function (Inscripto, $location) {
+app.factory('AccionesPartido',function (PartidoArecomendar, Inscripto, $location) {
     return {
         anotarme: function(partido, lambda){
             var inscripto = {
@@ -17,6 +17,11 @@ app.factory('AccionesPartido', function (Inscripto, $location) {
         },
         info: function(partido){
             $location.path("app/partidos/"+partido.id);
+        },
+        recomendar: function(partido){
+            PartidoArecomendar.setPartidoArecomendar(partido);
+            $location.path("app/recomendar");
         }
+
     };
 });
