@@ -34,7 +34,7 @@
     </thead>
     <tbody>
     <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
-        <td><img class="logo-user img-rounded"  src={{inscripto.usuario.photoUrl}}></td>
+        <td><img class="logo-user img-rounded" check-image ng-src={{inscripto.usuario.photoUrl}}></td>
         <td>{{ inscripto.partido.deporte }}</td>
         <td>{{ inscripto.partido.totalInscriptos }} de {{ inscripto.partido.cant_personas }}</td>
         <td>{{ inscripto.partido.lugar}}</td>

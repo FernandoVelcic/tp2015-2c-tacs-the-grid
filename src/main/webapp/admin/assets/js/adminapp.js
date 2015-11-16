@@ -21,6 +21,14 @@ adminapp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'admin/views/partidos.html',
             controller: 'adminPartidosController'
         })
+        .when('/app/admin/partidos/create/', {
+            templateUrl: 'admin/views/partidosForm.html',
+            controller: 'adminPartidosCreateController'
+        })
+        .when('/app/admin/partidos/edit/:id', {
+            templateUrl: 'admin/views/partidosForm.html',
+            controller: 'adminPartidosEditController'
+        })
         .when('/app/admin/usuarios', {
             templateUrl: 'admin/views/usuarios.html',
             controller: 'adminUsuariosController'

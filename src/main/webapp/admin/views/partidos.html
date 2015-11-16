@@ -16,9 +16,17 @@
     <p><b>UsuarioID:</b> {{ partidoSeleccionado.usuario.id }}</p>
     <p><b>Deporte:</b> {{ partidoSeleccionado.deporte }}</p>
     <p><b>Lugar:</b> {{ partidoSeleccionado.lugar }}</p>
-    <p><button class="btn btn-success" ng-click="deseleccionar()">
-        <span class="glyphicons"></span>Cerrar
-    </button></p>
+    <p>
+        <button class="btn btn-default" ng-click="editar(partidoSeleccionado)">
+            <span class="glyphicons"></span>Editar
+        </button>
+        <button class="btn btn-danger" ng-click="eliminar(partidoSeleccionado)">
+            <span class="glyphicons"></span>Eliminar
+        </button>
+        <button class="btn btn-success" ng-click="deseleccionar()">
+            <span class="glyphicons"></span>Cerrar
+        </button>
+    </p>
 </div>
 
 <table class="table table-striped" class="genericTable">
@@ -33,15 +41,12 @@
     </thead>
     <tbody>
     <tr style="text-align: center;" ng-repeat="partido in partidos">
-        <td><img class="logo-user img-rounded"  src={{partido.usuario.photoUrl}}></td>
+        <td><img class="logo-user img-rounded" check-image ng-src={{partido.usuario.photoUrl}}></td>
         <td>{{ partido.deporte }}</td>
         <td>{{ partido.totalInscriptos }} de {{ partido.cant_personas }}</td>
         <td>{{ partido.lugar}}</td>
         <td>{{ partido.usuario.name }}</td>
         <td>
-            <button class="btn btn-danger" ng-click="eliminar(partido)">
-                <span class="glyphicons"></span>Eliminar
-            </button>
             <button class="btn btn-info" ng-click="info(partido)">
                 <span class="glyphicons"></span>Informacion
             </button>

@@ -36,6 +36,12 @@ public class AdminController {
         getPartidoAdmin(id).delete();
     }
 
+    @ApiMethod(httpMethod = "post", path="admin/partido/")
+    public Partido insertPartidoAdmin(Partido partido) {
+        DatastoreService.getOfy().save().entity(partido).now();
+        return partido;
+    }
+
     //Entidad Usuario
     @ApiMethod(path="admin/usuario")
     public List<Usuario> listUsuariosAdmin() {
